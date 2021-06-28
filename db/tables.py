@@ -79,7 +79,7 @@ def create_blood_cases_table():
     return """CREATE TABLE BloodCases(
             id SERIAL PRIMARY KEY,
             bloodBankId INT NOT NULL REFERENCES BloodBanks(id),
-            orderId INT NOT NULL REFERENCES Orders(id),
+            orderId INT REFERENCES Orders(id),
             type TEXT NOT NULL,
             bloodClass TEXT NOT NULL,
             storingDate DATE NOT NULL,
@@ -94,7 +94,7 @@ def create_donations_table():
             userId INT NOT NULL REFERENCES Users(id),
             bloodBankId INT NOT NULL REFERENCES BloodBanks(id),
             status TEXT NOT NULL,
-            donationDate DATE NOT NULL,
+            donationDate DATE,
             bags INT,
             createdAt DATE NOT NULL
             )"""
