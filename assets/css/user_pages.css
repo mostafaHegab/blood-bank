@@ -1,0 +1,105 @@
+/** @format */
+body {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+/* ******************** navbar style ********************* */
+.listItems ul li {
+	padding: 0px 20px;
+}
+.listItems ul li a {
+	display: block;
+	padding: 10px 25px;
+	font-size: 1.1rem;
+	text-decoration: none;
+	color: #8a8a8a;
+	font-size: 22px;
+}
+
+.listItems ul li a::after,
+.listItems ul li a.activebtn::after {
+	content: '';
+	height: 4px;
+	background-color: red;
+	display: block;
+}
+.listItems ul li a::after {
+	width: 0px;
+	transition: width 0.5s;
+}
+.listItems ul li a:hover::after {
+	width: 100%;
+}
+
+.listItems ul li a.activebtn::after {
+	width: 100%;
+}
+
+/* ****************** main container style ******************** */
+.main {
+	margin: auto;
+}
+header p {
+	text-align: center;
+	margin-top: 20px;
+	font-size: 2.2rem;
+	color: #8a8a8a;
+}
+form {
+	margin: auto;
+	border: 1px solid #ccc;
+	margin-top: 20px;
+	padding: 20px 0px;
+	border-radius: 15px;
+	box-shadow: 2px 3px #d3d2d2;
+}
+.main > .mainChilds {
+	text-align: center;
+}
+.main form > input {
+	display: block;
+	margin: 10px auto;
+	width: 70%;
+	height: 50px;
+	border: none;
+	outline: none;
+	border-bottom: 1px solid rgb(209, 208, 208);
+}
+
+.main form > input::placeholder {
+	font-size: 1.1rem;
+	color: rgb(182, 182, 182);
+}
+
+.main form button {
+	min-width: 120px;
+	border-radius: 25px;
+	margin: 10px 50px;
+	font-size: 1.2rem;
+}
+
+/* ******************* home page style ********************** */
+.section-title {
+	text-align: center;
+	position: relative;
+}
+.section-title::after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	bottom: -10px;
+	transform: translate(-50%, 0);
+	width: 250px;
+	height: 4px;
+	margin: auto;
+	display: block;
+	background-color: #0082fc;
+}
+
+@media screen and (max-width: 700px) {
+	.mainChilds p {
+		font-size: 20px;
+	}
+}
