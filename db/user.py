@@ -6,5 +6,5 @@ def add_user(name, email, password, gender, age):
 
 
 def get_user_by_email(email):
-    query = """select id,name,password FROM Users WHERE email = '{}'"""
+    query = """select id,name, password FROM Users WHERE email = '{}'"""
     return query
