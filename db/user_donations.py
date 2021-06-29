@@ -5,10 +5,10 @@ def get_user_donations(id):
 #------------------------------------------------------------------------------------------------------------------------
 
 def add_user_donations(userId, bloodBankId , donationDate, createdAt):
- query = """INSERT INTO public.donations(userId, bloodBankId, status,donationDate, createdAt) VALUES ({},{},benging,{},{})"""
+ query = """INSERT INTO public.donations(userId, bloodBankId, status,donationDate, createdAt) VALUES ({},{},'bending','{}','{}')"""
  return query.format(userId, bloodBankId, donationDate, createdAt)
 
 #-------------------------------------------------------------------------------------------------------------------------
 def update_user(weight,hasDiseases,lastTreatmentDate,userId):
- query = """UPDATE public.users SET weight={}, hasDiseases={}, lastTreatmentDate={} WHERE users.id = {}"""
+ query = """UPDATE public.users SET weight={}, hasDiseases={}, lastTreatmentDate='{}' WHERE users.id = {}"""
  return query.format(weight,hasDiseases,lastTreatmentDate,userId)
