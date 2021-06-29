@@ -1,0 +1,30 @@
+from flask import Flask
+from flask_session import Session
+from flask_sqlalchemy import SQLAlchemy
+
+from db.init import conn, create_tables
+from utils.config import DB_CONFIG
+
+# blueprints imports
+
+app = Flask(__name__, template_folder='views', static_folder='assets')
+
+app.config['SQLALCHEMY_DATABASE_URI'] = DB_CONFIG['databaseURL']
+db = SQLAlchemy(app)
+SESSION_TYPE = "sqlalchemy"
+SESSION_SQLALCHEMY = db
+SESSION_SQLALCHEMY_TABLE = "sessions"
+app.config.from_object(__name__)
+sess = Session(app)
+sess.app.session_interface.db.create_all()
+
+# blueprint registers
+
+if __name__ == "__main__":
+    c = conn.cursor()
+    c.execute('''SELECT tableName FROM information_schema.tables WHERE table_schema = 'public' ORDER BY table_name''')
+    res = c.fetchall()
+    c.close()
+    if len(res) == 0 or len(res) == 1:
+        create_tables()
+    app.run(port=5000, threaded=True, debug=True)
