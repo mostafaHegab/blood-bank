@@ -79,7 +79,16 @@ form {
 	margin: 10px 50px;
 	font-size: 1.2rem;
 }
-
+.main form select {
+	width: 70%;
+	margin: 10px 0px 20px 0px;
+	border: none;
+	border-bottom: 1px solid rgb(201, 199, 199);
+}
+.main form select option {
+	display: block;
+	padding: 10px 2px;
+}
 /* ******************* home page style ********************** */
 .section-title {
 	text-align: center;
