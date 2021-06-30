@@ -70,7 +70,8 @@ def create_orders_table():
             hospitalId INT NOT NULL REFERENCES Hospitals(id),
             amount INT NOT NULL,
             bloodClass TEXT NOT NULL,
-            date TIMESTAMP NOT NULL
+            date TIMESTAMP NOT NULL,
+            isServed BOOLEAN NOT NULL DEFAULT FALSE 
             )"""
 
 # -------------------------------------
@@ -83,7 +84,8 @@ def create_blood_cases_table():
             type TEXT NOT NULL,
             bloodClass TEXT NOT NULL,
             storingDate DATE NOT NULL,
-            expirationDate DATE NOT NULL
+            expirationDate DATE NOT NULL,
+            isDeleted BOOLEAN NOT NULL DEFAULT FALSE
             )"""
 
 # -------------------------------------
@@ -96,7 +98,8 @@ def create_donations_table():
             status TEXT NOT NULL,
             donationDate DATE NOT NULL,
             bags INT,
-            createdAt DATE NOT NULL
+            createdAt DATE NOT NULL,
+            isAccepted BOOLEAN NOT NULL DEFAULT FALSE
             )"""
 
 # -------------------------------------
