@@ -6,6 +6,7 @@ from db.init import conn, create_tables
 from utils.config import DB_CONFIG
 
 # blueprints imports
+from blueprints.auth_blueprint import auth
 
 app = Flask(__name__, template_folder='views', static_folder='assets')
 
@@ -19,10 +20,11 @@ sess = Session(app)
 sess.app.session_interface.db.create_all()
 
 # blueprint registers
+app.register_blueprint(auth, url_prefix='/auth')
 
 if __name__ == "__main__":
     c = conn.cursor()
-    c.execute('''SELECT tableName FROM information_schema.tables WHERE table_schema = 'public' ORDER BY table_name''')
+    c.execute('''SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' ORDER BY table_name''')
     res = c.fetchall()
     c.close()
     if len(res) == 0 or len(res) == 1:

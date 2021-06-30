@@ -1,92 +1,195 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/SignUP_IN_pages.css') }}"
+        />
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
+        />
+    </head>
 
-<head>
-    <link rel="stylesheet" href="../assets/css/SignUP_IN_pages.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <body>
+        <div class="" style="">
+            <div class="row">
+                <div class="col-6" style="padding-right: 0; padding-left: 0">
+                    <img
+                        src="{{ url_for('static', filename='images/hi.jpg') }}"
+                        width="100%"
+                    />
+                </div>
+                <div class="col-6" style="padding-right: 0; padding-left: 0">
+                    <div class="login-html">
+                        <input
+                            id="tab-1"
+                            type="radio"
+                            name="tab"
+                            class="sign-in"
+                            checked
+                        /><label for="tab-1" class="tab">Sign In</label>
+                        <input
+                            id="tab-2"
+                            type="radio"
+                            name="tab"
+                            class="sign-up"
+                        /><label for="tab-2" class="tab">Sign Up</label>
 
-</head>
+                        <div class="login-form">
+                            <div class="sign-in-htm">
+                                <form action="/auth/signin" method="POST">
+                                    <div class="group">
+                                        <input
+                                            id="user"
+                                            type="text"
+                                            placeholder="Username @ examble.com"
+                                            class="input"
+                                            name="email"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="group">
+                                        <input
+                                            id="pass"
+                                            type="password"
+                                            placeholder="Password"
+                                            class="input"
+                                            data-type="password"
+                                            name="password"
+                                            required
+                                        />
+                                    </div>
 
-<body>
- <div class="" style="">
-     <div class="row">
-        <div class="col-6" style="padding-right: 0; padding-left:0 ;">    
-            <img src="../assets/images/hi.jpg" width="100%"> 
-     </div>
-        <div class="col-6" style="padding-right: 0; padding-left:0 ;">
+                                    <div class="group">
+                                        <input
+                                            type="submit"
+                                            class="button"
+                                            value="Sign In"
+                                        />
+                                    </div>
+                                    <div class="hr"></div>
+                                </form>
+                            </div>
 
-            <div class="login-html">
-                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-
-                <div class="login-form">
-                    <div class="sign-in-htm">
-                        <div class="group">
-                            <input id="user" type="text" placeholder="Username @ examble.com"  class="input">
+                            <div class="sign-up-htm">
+                                <form action="/auth/signup" method="POST">
+                                    <div class="group">
+                                        <input
+                                            id="user"
+                                            type="text"
+                                            placeholder="Name"
+                                            class="input"
+                                            name="name"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="group">
+                                        <input
+                                            id="pass"
+                                            type="password"
+                                            placeholder="Password"
+                                            class="input"
+                                            data-type="password"
+                                            name="password"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="group">
+                                        <input
+                                            id="pass"
+                                            type="password"
+                                            placeholder="Confirm Password"
+                                            class="input"
+                                            data-type="password"
+                                            name="confirmPassword"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="group">
+                                        <input
+                                            id="pass"
+                                            type="email"
+                                            placeholder="Email Address"
+                                            class="input"
+                                            name="email"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="group">
+                                        <select
+                                            class="input"
+                                            name="gender"
+                                            required
+                                        >
+                                            <option value="">Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">
+                                                Female
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="group">
+                                        <input
+                                            id="date"
+                                            placeholder="BirthDay"
+                                            class="input"
+                                            type="text"
+                                            onfocus="(this.type='date')"
+                                            onblur="(this.type='text')"
+                                            name="birthdate"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="group">
+                                        <select
+                                            class="input"
+                                            name="bloodClass"
+                                            required
+                                        >
+                                            <option>Blood Type</option>
+                                            <option>A+</option>
+                                            <option>A-</option>
+                                            <option>B+</option>
+                                            <option>B-</option>
+                                            <option>AB+</option>
+                                            <option>AB-</option>
+                                            <option>O+</option>
+                                            <option>O-</option>
+                                        </select>
+                                    </div>
+                                    <div class="group">
+                                        <input
+                                            type="submit"
+                                            class="button"
+                                            value="Sign Up"
+                                        />
+                                    </div>
+                                    <div class="hr"></div>
+                                </form>
+                            </div>
                         </div>
-                        <div class="group">
-                            <input id="pass" type="password" placeholder="Password" class="input" data-type="password">
-                        </div>
-                       
-                        <div class="group">
-                            <input type="submit" class="button" value="Sign In">
-                        </div>
-                        <div class="hr"></div>
-                    
                     </div>
-
-                    <div class="sign-up-htm">
-                        <div class="group">
-                            <input id="user" type="text" placeholder="Name" class="input">
-                        </div>
-                        <div class="group">
-                            <input id="pass" type="password" placeholder="Password" class="input" data-type="password">
-                        </div>
-                        <div class="group">
-                            <input id="pass" type="password" placeholder="Confirm Password" class="input" data-type="password">
-                        </div>
-                        <div class="group">
-                            <input id="pass" type="text"  placeholder="Email Address" class="input">
-                        </div>
-                        <div class="group">
-                            <input id="gender" type="text"  placeholder="Gender" class="input">
-                        </div>
-                        <div class="group">
-                            <input id="date" placeholder="BirthDay" class="input" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" />
-                        </div>
-                        <div class="group">
-                            <select class="input"  type="text">
-                                <option>Blood Type</option>
-                                <option>A+</option>
-                                <option>A-</option>
-                                <option>B+</option>
-                                <option>B-</option>
-                                <option>AB+</option>
-                                <option>AB-</option>
-                                <option>O+</option>
-                                <option>O-</option>
-                              </select>
-                        </div>
-                        <div class="group">
-                            <input type="submit" class="button" value="Sign Up">
-                        </div>
-                        <div class="hr"></div>
                 </div>
             </div>
-            
         </div>
-   
-    
-        </div>
-   
- </div>
-</div>
 
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
-
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"
+        ></script>
+    </body>
 </html>
-

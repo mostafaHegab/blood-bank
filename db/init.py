@@ -6,6 +6,11 @@ from utils.config import DB_CONFIG
 
 from . import tables
 
+
+def query_type(query):
+    return query[:query.index(' ')].lower()
+
+
 conn = psycopg2.connect(
     host=DB_CONFIG['host'],
     port=DB_CONFIG['port'],
@@ -13,6 +18,17 @@ conn = psycopg2.connect(
     password=DB_CONFIG['password'],
     database=DB_CONFIG['database'],
     cursor_factory=psycopg2.extras.RealDictCursor)
+
+
+def execute(query):
+    c = conn.cursor()
+    if query_type(query) != 'select':
+        query += ' RETURNING id'
+    c.execute(query)
+    res = c.fetchall()
+    c.close()
+    conn.commit()
+    return res
 
 
 def insert_data():
