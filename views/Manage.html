@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-sm">
+        <div class="container">
+            <!-- logo -->
+            <div class="d-flex align-items-center logoHeader">
+                <img src="../assets/images/logo.jpg" width="50px" alt="">
+                <h2 class="py-2"><span class="text-danger">B</span>lood
+                    <span class="text-danger">B</span>ank
+                </h2>
+            </div>
+
+            <!-- toggle button -->
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- navbar links -->
+            <div class="collapse navbar-collapse listItems"
+                id="navbarSupportedContent">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item ml-5 pl-2"><a href="Home.html"
+                            class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item mx-3 pr-5"><a href="#"
+                            class="activebtn nav-link">
+                            Donate Request</a></li>
+                    <li class="nav-item px-5"><a href="#"
+                            class="nav-link">Logout</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <main class="container p-5">
+        <table class="table table-striped table-light">
+            <tr>
+                <th class="bg-dark text-light w-50" scope="row">Donner Id
+                </th>
+                <td class="bg-light p-1"><input class="form-control" type="text"
+                        disabled /></td>
+            </tr>
+            <tr>
+                <th class="bg-dark text-light w-50" scope="row">Donner Name</th>
+                <td class="bg-light p-1"><input class="form-control" type="text"
+                        disabled /></td>
+            </tr>
+            <tr>
+                <th class="bg-dark text-light w-50" scope="row">Birthdate</th>
+                <td class="bg-light p-1"><input class="form-control" type="text"
+                        disabled /></td>
+            </tr>
+            <tr>
+                <th class="bg-dark text-light w-50" scope="row">Email</th>
+                <td class="bg-light p-1"><input class="form-control" type="text"
+                        disabled /></td>
+            </tr>
+            <tr>
+                <th class="bg-dark text-light w-50" scope="row">Gender</th>
+                <td class="bg-light p-1">
+                    <select disabled class="form-control" name="" id="">
+                        <option value="">Mail</option>
+                        <option value="">Femail</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th class="bg-dark text-light w-50" scope="row">Weight</th>
+                <td class="bg-light p-1"><input id="weight" class="form-control"
+                        type="number" disabled /></td>
+            </tr>
+            <tr>
+                <th class="bg-dark text-light w-50" scope="row">Has Diseases
+                </th>
+                <td class="bg-light p-1">
+                    <select id="hasDis" disabled class="form-control" name=""
+                        id="">
+                        <option value="">Yes</option>
+                        <option value="">No</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th class="bg-dark text-light w-50" scope="row">Last treatment
+                    Date</th>
+                <td class="bg-light p-1"><input id="lasttreat"
+                        class="form-control" type="Date" disabled /></td>
+            </tr>
+            <tr>
+                <th class="bg-dark text-light w-50" scope="row">Blood Class</th>
+                <td class="bg-light p-1">
+                    <select disabled class="form-control" name="" id="">
+                        <option value="">O+</option>
+                        <option value="">O-</option>
+                        <option value="">A+</option>
+                        <option value="">A-</option>
+                        <option value="">B+</option>
+                        <option value="">B-</option>
+                        <option value="">AB+</option>
+                        <option value="">AB-</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th class="bg-dark text-light w-50" scope="row">Last Donation
+                    Date</th>
+                <td class="bg-light p-1"><input id="lastdonate"
+                        class="form-control" type="Date" disabled /></td>
+            </tr>
+            <tr>
+                <td><button id="accept" class="btn btn-primary">Accept</button>
+                </td>
+                <td>
+                    <button id="refuse" class="btn btn-danger">Refuse</button>
+                    <form action="">
+                        <input id="ref" type="submit"
+                            class="btn btn-danger d-none" value="Refuse" />
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </main>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="../assets/js/manage.js"></script>
+</body>
+
+</html>
