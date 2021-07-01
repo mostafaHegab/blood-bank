@@ -5,7 +5,7 @@ def get_user_donations(id):
 #------------------------------------------------------------------------------------------------------------------------
 
 def add_user_donations(userId, bloodBankId , donationDate, createdAt):
- query = """INSERT INTO public.donations(userId, bloodBankId, status,donationDate, createdAt) VALUES ({},{},'bending','{}','{}')"""
+ query = """INSERT INTO public.donations(userId, bloodBankId, donationDate, createdAt) VALUES ({},{},'{}','{}')"""
  return query.format(userId, bloodBankId, donationDate, createdAt)
 
 #-------------------------------------------------------------------------------------------------------------------------
