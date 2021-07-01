@@ -1,0 +1,97 @@
+
+
+
+/*universal selector*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   }
+    body{
+        font-family: 'Arial', sans-serif;
+    }
+    a{
+        text-decoration: none;
+    }
+/*----------start header*/
+.header{
+    
+    border-bottom: 1px solid rgb(211, 209, 209);
+}
+.header .logo{
+    margin-left: 10%;
+    display: flex;
+    align-items: center;
+    padding-right: 5%;
+}
+.header .logo img{
+    width: 60px;
+  
+
+}
+.header .logo-text{
+    font-size: 35px;
+
+
+}
+.header .first-letter ,.header .second-letter{
+    color: red;
+    font-size: 38px;
+    text-transform: uppercase;
+}
+.header .nav{
+    list-style: none;
+    text-align: right;
+    padding-left: 10%;
+}
+.header .nav  li{
+    display: inline-block;
+}
+.header .nav  li  a{
+    color: rgb(109, 102, 102);
+    padding: 30px 30px ;
+    display: block;
+    font-size: 20px;
+    text-transform: capitalize;
+
+}
+
+.header .nav  li  a:after,
+.header .nav  li  a.active:after{
+    content: "";
+    display: block;
+    height: 2px;
+    background-color:#ff6161 ;
+    transition: width .5s;
+}
+.header .nav  li  a:after{
+    width: 0px;
+}
+.header .nav li  a.active:after{
+    width: 100%;
+}
+.header .nav  li  a:hover:after{
+    width: 100%;
+}
+
+
+/*----------start section form*/
+select{
+    -webkit-appearance: none;
+    appearance: none;
+    
+ width: 80%;
+
+}
+.input_num,select{
+    outline: none;
+    padding-left:15px ;
+
+    height: 40px;
+}
+.input_num::placeholder{
+    color: black;
+}
+.input_num{
+    width: 100%;
+}
