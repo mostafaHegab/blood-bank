@@ -10,11 +10,12 @@ def create_users_table():
             hasDiseases BOOLEAN,
             lastTreatmentDate DATE,
             bloodClass TEXT,
-            lastDonationDate DATE,
-            nextDonationDate DATE
+            lastDonationDate DATE DEFAULT '1970-01-01 00:00:00',
+            nextDonationDate DATE DEFAULT '1970-01-01 00:00:00'
             )"""
 
 # -------------------------------------
+
 
 def create_governorates_table():
     return """CREATE TABLE Governorates(
@@ -24,6 +25,7 @@ def create_governorates_table():
 
 # -------------------------------------
 
+
 def create_cities_table():
     return """CREATE TABLE Cities(
             id SERIAL PRIMARY KEY,
@@ -32,6 +34,7 @@ def create_cities_table():
             )"""
 
 # -------------------------------------
+
 
 def create_blood_banks_table():
     return """CREATE TABLE BloodBanks(
@@ -48,6 +51,7 @@ def create_blood_banks_table():
 
 # -------------------------------------
 
+
 def create_hospitals_table():
     return """CREATE TABLE Hospitals(
             id SERIAL PRIMARY KEY,
@@ -63,6 +67,7 @@ def create_hospitals_table():
 
 # -------------------------------------
 
+
 def create_orders_table():
     return """CREATE TABLE Orders (
             id SERIAL PRIMARY KEY,
@@ -70,10 +75,12 @@ def create_orders_table():
             hospitalId INT NOT NULL REFERENCES Hospitals(id),
             amount INT NOT NULL,
             bloodClass TEXT NOT NULL,
+            status TEXT NOT NULL DEFAULT 'pending',
             date TIMESTAMP NOT NULL
             )"""
 
 # -------------------------------------
+
 
 def create_blood_cases_table():
     return """CREATE TABLE BloodCases(
@@ -88,12 +95,13 @@ def create_blood_cases_table():
 
 # -------------------------------------
 
+
 def create_donations_table():
     return """CREATE TABLE Donations(
             id SERIAL PRIMARY KEY,
             userId INT NOT NULL REFERENCES Users(id),
             bloodBankId INT NOT NULL REFERENCES BloodBanks(id),
-            status TEXT NOT NULL,
+            status TEXT NOT NULL DEFAULT 'pending',
             donationDate DATE,
             bags INT,
             createdAt DATE NOT NULL
