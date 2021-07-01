@@ -1,5 +1,5 @@
 def get_bloodbanks_by_email(email):
-    query = """SELECT BloodBanks.name, concat(street, Cities.name, Governorates.name), phone, info, createdAt FROM BloodBanks INNER JOIN Cities ON BloodBanks.cityId = Cities.id INNER JOIN Governorates ON Cities.governorateId = Governorates.id WHERE BloodBanks.email = '{}'""" 
+    query = """SELECT BloodBanks.id, BloodBanks.email, BloodBanks.password FROM BloodBanks WHERE BloodBanks.email = '{}'"""" 
     return query.format(email)
 
 #******************************************************
