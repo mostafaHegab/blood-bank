@@ -112,6 +112,9 @@ form {
 		font-size: 20px;
 	}
 }
-.Bank_home{
-	margin-bottom: 7%;
+.bank_home{
+	padding-top: 7%;
+}
+.table-condensed{
+        font-size: .88rem
 }

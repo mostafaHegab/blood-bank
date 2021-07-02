@@ -36,14 +36,15 @@
             <div class="collapse navbar-collapse listItems"
                 id="navbarSupportedContent">
                 <ul class="navbar-nav m-auto">
-                    <li class="nav-item mx-3 pr-5"><a href="#"
-                            class="activebtn nav-link">Home</a>
+                    <li class="nav-item"><a href="Bank_home.html"
+                            class="nav-link">Home</a>
                     </li>
-                    <li class="nav-item"><a href="donate_Requests.html"
-                        class="nav-link">
-                        Donate Request</a></li>
+                    <li class="nav-item mx-3 pr-5"><a href="#"
+                            class="activebtn nav-link">
+                            Donate requests</a></li>                    
                     <li class="nav-item"><a href="Manage.html"
-                        class="nav-link">Manage</a></li>
+                        class="nav-link">
+                        Manage</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Logout</a>
                     </li>
                 </ul>
@@ -53,17 +54,22 @@
     </nav>
 
     <div class="container bank_home">
-        
-        <table class="table table-striped table-dark">
+        <table class="table table-striped table-dark table-condensed">
 
             <thead>
                 <tr>
-                    <th scope="col">Blood Id</th>
-                    <th scope="col">Blood Type</th>
+                    <th scope="col" class="text-center">Donner Id</th>
+                    <th scope="col">Donner Name</th>
+                    <th scope="col">Birthdate</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Weight</th>
+                    <th scope="col">Has Diseases</th>
+                    <th scope="col" class="col-md-auto">Last Treatment Date</th>
                     <th scope="col">Blood Class</th>
-                    <th scope="col">Storing Date</th>
-                    <th scope="col">Expiration Date</th>
-                    <th scope="col">Delete</th>
+                    <th scope="col">Last Donation Date</th>
+                    <th scope="col">Show</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -73,7 +79,13 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><button class="btn btn-danger">Delete</button></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn btn-primary">Show</button></td>
+
                 </tr>
                 <tr>
                     <th scope="row">2</th>
@@ -81,22 +93,39 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><button class="btn btn-danger">Delete</button></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn btn-primary">Show</button></td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
-                    <td colspan="2"></td>
                     <td></td>
                     <td></td>
-                    <td><button class="btn btn-danger">Delete</button></td>
-                </tr>                
-                <tr>
-                    <th scope="row">4</th>
-                    <td colspan="2"></td>
                     <td></td>
                     <td></td>
-                    <td><button class="btn btn-danger">Delete</button></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn btn-primary">Show</button></td>
                 </tr>
+                <tr>
+                <th scope="row">4</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><button class="btn btn-primary">Show</button></td>
+            </tr>
             </tbody>
 
         </table>
