@@ -45,7 +45,7 @@ def search_for_blood(blood_type, blood_class):
 	AND
 	BloodBanks.id = BloodCases.bloodBankId
 	AND 
-	BloodCases.type = 'type1'
+	BloodCases.type = {}
 	AND
-	BloodCases.bloodClass = 'A+')As BankInfo"""
+	BloodCases.bloodClass = {})As BankInfo"""
     return query.format(blood_type, blood_class)
