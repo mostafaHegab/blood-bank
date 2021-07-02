@@ -8,7 +8,9 @@ def get_hospital_data_by_email(email):
 	WHERE email = {}"""
     return query.format(email)
 
+
 # -----------------------------------------------------------------------
+
 
 def search_for_blood(blood_type, blood_class):
     query = """SELECT DISTINCT
