@@ -10,7 +10,7 @@
     <!-- -------style.css--------------------------------------------------------------------- -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/admin_pages.css">
+        <link rel="stylesheet" href="../assets/css/admin_pages.css">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
          <div class="container-fluid">
                  <div class="logo">
-                    <img src="../assets/images/logo.jpg" alt="logo image" draggable="false">
+                    <img src="{{ url_for('static', filename='images/logo.jpg') }}‏" alt="logo image" draggable="false">
                     <span class="logo-text"><span class="first-letter">b</span>lood <span
                             class="second-letter">b</span>ank</span>
                   </div><!-- ./logo -->
@@ -29,9 +29,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="nav">
-                        <li><a  href="add_hos_bank.html">add hospital/bank</a></li>
-                        <li><a href="show_hospitals.html">hospitals</a></li>
-                        <li><a class="active" href="#">bload banks</a></li>
+                      <li><a href="/sys-admin">add hospital/bank</a></li>
+                      <li><a href="/sys-admin/view-hospitals">hospitals</a></li>
+                      <li><a class="active" href="/sys-admin/view-banks">bload banks</a></li>
                     </ul>
                 </div>
                 
@@ -57,33 +57,17 @@
                   </tr>
                 </thead>
                 <tbody>
+                  {% for bank in banks %} 
                   <tr>
-                    <th scope="row">1</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <th scope="row">{{bank["id"]}}</th>
+                    <td>{{bank["name"]}}</td>
+                    <td>{{bank["email"]}}</td>
+                    <td>{{bank["concat"]}}</td>
+                    <td>{{bank["phone"]}}</td>
+                    <td>{{bank["info"]}}</td>
+                    <td>{{bank["createdat"]}}</td>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
+                  {% endfor %}
                 </tbody>
               </table>
         </div><!-- ./row -->
