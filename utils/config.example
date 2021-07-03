@@ -1,0 +1,11 @@
+# create config.py file with the following code, change DB_CONFIG values
+
+DB_CONFIG = {
+    "host": "localhost",
+    "port": 5432,
+    "user": "admin",
+    "password": "secret",
+    "database": "blood-bank",
+}
+
+DB_CONFIG["databaseURL"] = f"postgresql://{DB_CONFIG['user']}:{DB_CONFIG['password']}@{DB_CONFIG['host']}:{DB_CONFIG['port']}/{DB_CONFIG['database']}"
