@@ -8,6 +8,8 @@ from utils.config import DB_CONFIG
 # blueprints imports
 from blueprints.auth_blueprint import auth
 from blueprints.system_admin_blueprint import sys_admin
+from blueprints.user_blueprint import user
+
 
 app = Flask(__name__, template_folder='views', static_folder='assets')
 
@@ -23,6 +25,7 @@ sess.app.session_interface.db.create_all()
 # blueprint registers
 app.register_blueprint(auth, url_prefix='/auth')
 app.register_blueprint(sys_admin, url_prefix='/sys-admin')
+app.register_blueprint(user, url_prefix='/user')
 
 if __name__ == "__main__":
     c = conn.cursor()

@@ -11,7 +11,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
 
-    <link rel="stylesheet" href="../assets/css/user_pages.css">
+    <link rel="stylesheet" href= "{{ url_for('static', filename='css/user_pages.css') }}">‏
     <title>Document</title>
 </head>
 
@@ -38,10 +38,10 @@
             <div class="collapse navbar-collapse listItems"
                 id="navbarSupportedContent">
                 <ul class="navbar-nav m-auto">
-                    <li class="nav-item"><a href="user_home.html"
+                    <li class="nav-item"><a href="/user"
                             class="nav-link">Home</a>
                     </li>
-                    <li class="nav-item"><a href="#"
+                    <li class="nav-item"><a href="/user/donate"
                             class="activebtn nav-link">Apply
                             Donate</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Logout</a>
@@ -63,27 +63,30 @@
         </header>
 
         <!-- donation form content -->
-        <form action="" class="mainChilds col-12 col-sm-10 col-md-8 col-lg-6">
-            <input placeholder="Last Tratment Date" class="textbox-n"
+        <form action="" method="POST" class="mainChilds col-12 col-sm-10 col-md-8 col-lg-6" >
+            <input name ="lastTreatmentDate" placeholder="Last Tratment Date" class="textbox-n"
                 type="text" onfocus="(this.type='date')"
                 onblur="(this.type='text')" id="date" />
 
-            <input type="number" name="" id="" placeholder="Weight">
+            <input type="number" name="weight" id="" placeholder="Weight">
+             have diseases
+            <select name="hasDiseases" id="">
+                <option value ="true">Yes</option>
+                <option value ="false">No</option>
+            </select>
 
-            <input type="text" name="" id="" placeholder="Have you diseases">
-
-            <input placeholder="Last Donation Date" class="textbox-n"
+            <input name = "donationDate" placeholder="Last Donation Date" class="textbox-n"
                 type="text" onfocus="(this.type='date')"
                 onblur="(this.type='text')" id="date" />
 
-            <select name="" id="">
+            <select name="bankId" id="">
                 <option hidden>Bank Name</option>
-                <option>Cairo Bank</option>
-                <option>Zagazig Bank</option>
+                {% for bank in banksname %}
+                <option value ="{{bank.id}}">{{bank.name}}</option>
+                {% endfor %}
             </select>
             <div>
-                <button class="btn btn-primary">Back</button>
-                <button class="btn btn-danger">Donate</button>
+                <button class="btn btn-danger" formaction="/user/donate">Donate</button>
             </div>
         </form>
 

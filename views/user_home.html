@@ -11,7 +11,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
 
-    <link rel="stylesheet" href="../assets/css/user_pages.css">
+    <link rel="stylesheet" href=" {{ url_for('static', filename='scss/user_pages.css') }}‏">
     <title>Document</title>
 </head>
 
@@ -36,14 +36,13 @@
             <div class="collapse navbar-collapse listItems"
                 id="navbarSupportedContent">
                 <ul class="navbar-nav m-auto">
-                    <li class="nav-item"><a href="#"
+                    <li class="nav-item"><a href="/user"
                             class="activebtn nav-link">Home</a>
                     </li>
-                    <li class="nav-item"><a href="donate.html"
+                    <li class="nav-item"><a href="/user/donate"
                             class="nav-link">Apply
                             Donate</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Logout</a>
-                    </li>
+                    
                 </ul>
             </div>
 
@@ -63,29 +62,21 @@
                     <th scope="col">Bank Address</th>
                     <th scope="col">Donation Date</th>
                     <th scope="col">Bags</th>
+                    <th scope="col">status</th>
                 </tr>
             </thead>
             <tbody>
+                {% for donation in donations %}
                 <tr>
-                    <th scope="row">1</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <th scope="row">{{donation["donationid"]}}</th>
+                    <td>{{donation["bankname"]}}</td>
+                    <td>{{donation["address"]}}</td>
+                    <td>{{donation["donationdate"]}}</td>
+                    <td>{{donation["bags"]}}</td>
+                    <td>{{donation["status"]}}</td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2"></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                {% endfor %}
+               
             </tbody>
 
         </table>
