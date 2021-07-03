@@ -42,4 +42,4 @@ def signin():
     if not passwordVerified:
         return alert('incorrect password')
     session['user'] = {"id": user['id'], "name": user['name']}
-    return redirect('/auth')
+    return redirect('/user')

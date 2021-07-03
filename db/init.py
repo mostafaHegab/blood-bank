@@ -33,7 +33,7 @@ def execute(query):
 
 def insert_data():
     print('inserting data...')
-    f = open('db/egypt.json')
+    f = open('db/egypt.json',"r" ,encoding="utf-8")
     data = json.load(f)['Egypt']
     govs = 'INSERT INTO Governorates (id, name) VALUES '
     cities = 'INSERT INTO Cities (id, name, governorateId) VALUES '
