@@ -1,103 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- CSS only -->
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
+        />
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS only -->
-    <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+        <link rel="stylesheet" href="../assets/css/user_pages.css" />
+        ‏
+        <title>Document</title>
+    </head>
 
-    <link rel="stylesheet" href= "{{ url_for('static', filename='css/user_pages.css') }}">‏
-    <title>Document</title>
-</head>
+    <body>
+        <nav class="navbar navbar-light navbar-expand-sm">
+            <div class="container">
+                <!-- logo -->
+                <div class="d-flex align-items-center logoHeader">
+                    <img src="../assets/images/logo.jpg" width="50px" alt="" />
+                    <h2 class="pl-3 pt-3">
+                        <span class="text-danger">B</span>lood
+                        <span class="text-danger">B</span>ank
+                    </h2>
+                </div>
 
-<body>
-    <nav class="navbar navbar-light navbar-expand-sm">
-        <div class="container">
-            <!-- logo -->
-            <div class="d-flex align-items-center logoHeader">
-                <img src="../assets/images/logo.jpg" width="50px" alt="">
-                <h2 class="pl-3 pt-3"><span class="text-danger">B</span>lood
-                    <span class="text-danger">B</span>ank
-                </h2>
+                <!-- toggle button -->
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar links -->
+                <div
+                    class="collapse navbar-collapse listItems"
+                    id="navbarSupportedContent"
+                >
+                    <ul class="navbar-nav m-auto">
+                        <li class="nav-item">
+                            <a href="/user" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/user/donate" class="activebtn nav-link"
+                                >Apply Donate</a
+                            >
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </nav>
 
-            <!-- toggle button -->
-            <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- navbar links -->
-            <div class="collapse navbar-collapse listItems"
-                id="navbarSupportedContent">
-                <ul class="navbar-nav m-auto">
-                    <li class="nav-item"><a href="/user"
-                            class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item"><a href="/user/donate"
-                            class="activebtn nav-link">Apply
-                            Donate</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Logout</a>
-                    </li>
-                </ul>
-            </div>
+        <!-- main content -->
+        <main class="container main">
+            <!-- content header -->
+            <header class="mainChilds">
+                <p>TO donate, please add this information</p>
+            </header>
 
-        </div>
-    </nav>
+            <!-- donation form content -->
+            <form
+                action=""
+                method="POST"
+                class="mainChilds col-12 col-sm-10 col-md-8 col-lg-6"
+            >
+                <input
+                    name="lastTreatmentDate"
+                    placeholder="Last Tratment Date"
+                    class="textbox-n"
+                    type="text"
+                    onfocus="(this.type='date')"
+                    onblur="(this.type='text')"
+                    id="date"
+                />
 
+                <input type="number" name="weight" id="" placeholder="Weight" />
+                have diseases
+                <select name="hasDiseases" id="">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
 
-    <!-- main content -->
-    <main class="container main">
-        <!-- content header -->
-        <header class="mainChilds">
-            <p>
-                TO donate, please add this information
-            </p>
-        </header>
+                <input
+                    name="donationDate"
+                    placeholder="Last Donation Date"
+                    class="textbox-n"
+                    type="text"
+                    onfocus="(this.type='date')"
+                    onblur="(this.type='text')"
+                    id="date"
+                />
 
-        <!-- donation form content -->
-        <form action="" method="POST" class="mainChilds col-12 col-sm-10 col-md-8 col-lg-6" >
-            <input name ="lastTreatmentDate" placeholder="Last Tratment Date" class="textbox-n"
-                type="text" onfocus="(this.type='date')"
-                onblur="(this.type='text')" id="date" />
+                <select name="bankId" id="">
+                    <option hidden>Bank Name</option>
+                    {% for bank in banksname %}
+                    <option value="{{bank.id}}">{{bank.name}}</option>
+                    {% endfor %}
+                </select>
+                <div>
+                    <button class="btn btn-danger" formaction="/user/donate">
+                        Donate
+                    </button>
+                </div>
+            </form>
+        </main>
 
-            <input type="number" name="weight" id="" placeholder="Weight">
-             have diseases
-            <select name="hasDiseases" id="">
-                <option value ="true">Yes</option>
-                <option value ="false">No</option>
-            </select>
-
-            <input name = "donationDate" placeholder="Last Donation Date" class="textbox-n"
-                type="text" onfocus="(this.type='date')"
-                onblur="(this.type='text')" id="date" />
-
-            <select name="bankId" id="">
-                <option hidden>Bank Name</option>
-                {% for bank in banksname %}
-                <option value ="{{bank.id}}">{{bank.name}}</option>
-                {% endfor %}
-            </select>
-            <div>
-                <button class="btn btn-danger" formaction="/user/donate">Donate</button>
-            </div>
-        </form>
-
-    </main>
-
-
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-</body>
-
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+        ></script>
+    </body>
 </html>
