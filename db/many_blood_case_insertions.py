@@ -1,7 +1,7 @@
 def insert_blood_cases(blood_bank_id, case_type, blood_class, storing_date, expiration_date, count):
     formatted_rows = ''
     query = "INSERT INTO BloodCases(bloodBankId, type, bloodClass, storingDate, expirationDate) VALUES "
-    rows = "({}, {}, {}, {}, {})"
+    rows = "({}, '{}', '{}', '{}', '{}')"
 
     for i in range(count):
         formatted_rows += rows.format(blood_bank_id, case_type, blood_class, storing_date, expiration_date) + ','
