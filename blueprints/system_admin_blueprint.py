@@ -54,6 +54,7 @@ def add_hos():
 @sys_admin.route('/view-banks', methods=['GET'])
 def show_bank():
     banks = execute(get_bloodbanks())
+    print(banks)
     return render_template('show_banks.html', banks= banks)
 
 @sys_admin.route('/view-hospitals', methods=['GET'])
