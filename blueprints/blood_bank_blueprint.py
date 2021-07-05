@@ -5,6 +5,7 @@ from db.bank_storage import get_bank_Storage
 import datetime
 from utils.alert import alert 
 from utils.security import encrypt_password, check_encrypted_password
+from db.donation_request import get_donation_request
 
 
 bank = Blueprint('bank', __name__)
@@ -37,5 +38,16 @@ def home():
     bloodcases = execute(get_bank_Storage(session.get("bank")["id"]))
     print(bloodcases)
     return render_template('Bank_home.html',bloodcases=bloodcases)
+
+@bank.route('/request', methods=['GET'])
+def show_donate_requests():
+    history= execute(get_donation_request(session.get("bank")["id"]))
+    print(history)
+    return render_template('donate_Requests.html',history=history)
+
+@bank.route('/manage', methods=['GET'])
+def show_manage():
+    
+    return render_template('manage.html')
 
     
