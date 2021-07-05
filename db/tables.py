@@ -91,7 +91,8 @@ def create_blood_cases_table():
             type TEXT NOT NULL,
             bloodClass TEXT NOT NULL,
             storingDate DATE NOT NULL,
-            expirationDate DATE NOT NULL
+            expirationDate DATE NOT NULL,
+            isDeleted BOOLEAN DEFAULT false
             )"""
 
 # -------------------------------------
