@@ -91,6 +91,7 @@ def create_blood_cases_table():
             bloodClass TEXT NOT NULL,
             storingDate DATE NOT NULL,
             expirationDate DATE NOT NULL
+            isDeleted boolean not null
             )"""
 
 # -------------------------------------
