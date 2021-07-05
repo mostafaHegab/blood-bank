@@ -105,7 +105,8 @@ def create_donations_table():
             bloodBankId INT NOT NULL REFERENCES BloodBanks(id),
             status TEXT NOT NULL DEFAULT 'pending',
             donationDate DATE,
-            bags INT,
+            bags INT DEFAULT 1,
+            bloodType TEXT NOT NULL DEFAULT 'complete',
             createdAt DATE NOT NULL
             )"""
 

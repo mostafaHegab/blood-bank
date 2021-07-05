@@ -1,98 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- CSS only -->
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
+        />
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS only -->
-    <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+        <link rel="stylesheet" href="../assets/css/user_pages.css" />
+        <title>Document</title>
+    </head>
 
-    <link rel="stylesheet" href="../assets/css/user_pages.css">
-    <title>Document</title>
-</head>
+    <body>
+        <nav class="navbar navbar-light navbar-expand-sm">
+            <div class="container Bank_home">
+                <div class="d-flex align-items-center logoHeader">
+                    <img src="../assets/images/logo.jpg" width="50px" alt="" />
+                    <h2 class="pl-3 pt-3">
+                        <span class="text-danger">B</span>lood
+                        <span class="text-danger">B</span>ank
+                    </h2>
+                </div>
 
-<body>
-    <nav class="navbar navbar-light navbar-expand-sm">
-        <div class="container Bank_home">
-            <div class="d-flex align-items-center logoHeader">
-                <img src="../assets/images/logo.jpg" width="50px" alt="">
-                <h2 class="pl-3 pt-3"><span class="text-danger">B</span>lood
-                    <span class="text-danger">B</span>ank
-                </h2>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div
+                    class="collapse navbar-collapse listItems"
+                    id="navbarSupportedContent"
+                >
+                    <ul class="navbar-nav m-auto">
+                        <li class="nav-item">
+                            <a href="/bank/home" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item mx-3 pr-5">
+                            <a href="#" class="activebtn nav-link">
+                                Donate requests</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a href="/bank/manage" class="nav-link"> Manage</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Logout</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </nav>
 
-            <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <div class="container bank_home">
+            <table class="table table-striped table-dark table-condensed">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">Donnation Id</th>
+                        <th scope="col">Donner Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Blood Class</th>
+                        <th scope="col">Blood Type</th>
+                        <th scope="col">Show</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for donate in history %}
+                    <tr>
+                        <th scope="row">{{donate["id"]}}</th>
+                        <td>{{donate["name"]}}</td>
+                        <td>{{donate["email"]}}</td>
+                        <td>{{donate["gender"]}}</td>
+                        <td>{{donate["bloodclass"]}}</td>
+                        <td>{{donate["bloodtype"]}}</td>
+                        <td>
+                            <a
+                                class="btn btn-primary"
+                                href="/bank/donation-request/{{donate['id']}}"
+                                >Show</a
+                            >
+                        </td>
+                    </tr>
 
-            <div class="collapse navbar-collapse listItems"
-                id="navbarSupportedContent">
-                <ul class="navbar-nav m-auto">
-                    <li class="nav-item"><a href="/bank/home"
-                            class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item mx-3 pr-5"><a href="#"
-                            class="activebtn nav-link">
-                            Donate requests</a></li>                    
-                    <li class="nav-item"><a href="/bank/manage"
-                        class="nav-link">
-                        Manage</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Logout</a>
-                    </li>
-                </ul>
-            </div>
-
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
-    </nav>
 
-    <div class="container bank_home">
-        <table class="table table-striped table-dark table-condensed ">
-
-            <thead>
-                <tr>
-                    <th scope="col" class="text-center">Donner Id</th>
-                    <th scope="col">Donner Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Gender</th>
-                    <th scope="col">Blood Class</th>
-                    <th scope="col">Show</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                {% for donate in history %}
-                <form action=""method="GET"></form>
-                <tr>
-                    <th scope="row">{{donate["id"]}}</th>
-                    <td>{{donate["name"]}}</td>
-                    <td>{{donate["email"]}}</td>
-                    <td>{{donate["gender"]}}</td>
-                    <td>{{donate["bloodclass"]}}</td>
-                    <td><button class="btn btn-primary "formaction ="/bank/manage">Show</button></td>
-
-                </tr>
-            </form>
-            
-                {% endfor %}
-             
-            </tbody>
-        
-        </table>
-    </div>
-
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-</body>
-
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+        ></script>
+    </body>
 </html>
