@@ -76,7 +76,7 @@ def create_orders_table():
             amount INT NOT NULL,
             bloodClass TEXT NOT NULL,
             status TEXT NOT NULL DEFAULT 'pending',
-            date TIMESTAMP NOT NULL
+            date TIMESTAMP NOT NULL,
             type TEXT NOT NULL
             )"""
 
