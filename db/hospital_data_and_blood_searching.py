@@ -1,11 +1,5 @@
 def get_hospital_data_by_email(email):
-    query = """SELECT
-	id,  
-	email,	
-	password
- 	FROM 
-	Hospitals
-	WHERE email = {}"""
+    query = """SELECT id, email, password FROM  Hospitals WHERE email = '{}'"""
     return query.format(email)
 
 
