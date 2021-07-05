@@ -42,10 +42,9 @@
                     <li class="nav-item"><a href="donate_Requests.html"
                         class="nav-link">
                         Donate Request</a></li>
-                    <li class="nav-item"><a href="Manage.html"
-                        class="nav-link">Manage</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Logout</a>
-                    </li>
+                        <li class="nav-item"><a href="blood_requests.html" class="nav-link">
+                            Blood Request</a></li>
+                   
                 </ul>
             </div>
 
@@ -67,36 +66,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="btn btn-danger">Delete</button></td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="btn btn-danger">Delete</button></td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2"></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="btn btn-danger">Delete</button></td>
-                </tr>                
-                <tr>
-                    <th scope="row">4</th>
-                    <td colspan="2"></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="btn btn-danger">Delete</button></td>
-                </tr>
+                {% for case in bloodcases %}
+                    <tr>
+                        <th scope="row">{{case["bloodbankid"]}}</th>
+                        <td>{{case["type"]}}</td>
+                        <td>{{case["bloodclass"]}}</td>
+                        <td>{{case["storingdate"]}}</td>
+                        <td>{{case["expirationDate"]}}</td>
+                        <td><button class="btn btn-danger">Delete</button></td>
+                    </tr>
+                    {% endfor %}
             </tbody>
 
         </table>

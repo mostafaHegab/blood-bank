@@ -9,6 +9,8 @@ from utils.config import DB_CONFIG
 from blueprints.auth_blueprint import auth
 from blueprints.system_admin_blueprint import sys_admin
 from blueprints.user_blueprint import user
+from blueprints.blood_bank_blueprint import bank
+from blueprints.hospital_blueprint import hospital
 
 
 app = Flask(__name__, template_folder='views', static_folder='assets')
@@ -26,6 +28,8 @@ sess.app.session_interface.db.create_all()
 app.register_blueprint(auth, url_prefix='/auth')
 app.register_blueprint(sys_admin, url_prefix='/sys-admin')
 app.register_blueprint(user, url_prefix='/user')
+app.register_blueprint(bank, url_prefix='/bank')
+app.register_blueprint(hospital, url_prefix='/hospital')
 
 if __name__ == "__main__":
     c = conn.cursor()

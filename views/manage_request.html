@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="multi_select.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-sm">
+        <div class="container">
+            <!-- logo -->
+            <div class="d-flex align-items-center logoHeader">
+                <img src="../assets/images/logo.jpg" width="50px" alt="">
+                <h2 class="py-1 px-3 pt-3"><span
+                        class="text-danger">B</span>lood
+                    <span class="text-danger">B</span>ank
+                </h2>
+            </div>
+
+            <!-- toggle button -->
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- navbar links -->
+            <div class="collapse navbar-collapse listItems"
+                id="navbarSupportedContent">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item ml-5 pl-2"><a href="Home.html"
+                            class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item mx-3"><a href="#"
+                            class="activebtn nav-link">
+                            Donate Request</a></li>
+                    <li class="nav-item"><a href="#" class="activebtn nav-link">
+                            Blood Request</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <main class="container py-5">
+        <table class="table">
+            <tr>
+                <!-- order information -->
+                <td class="w-75">
+                    <table class="table text-light bg-dark table-striped">
+                        <tr>
+                            <th class="w-25" scope="row">Order Id</th>
+                            <td class="bg-light text-dark text-center">1
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Hospital Name</th>
+                            <td class="bg-light text-dark text-center">Cairo
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Hospital Address</th>
+                            <td class="bg-light text-dark text-center">cairo
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Amount</th>
+                            <td class="bg-light text-dark text-center">25</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Order Date</th>
+                            <td class="bg-light text-dark text-center">12/5/1582
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bg-light text-dark" scope="row">
+                                <form action="">
+                                    <input type="submit" value="Accept"
+                                        class="btn btn-primary">
+                                </form>
+                            </td>
+                            <form action="">
+                                <td class="bg-light text-dark text-center">
+                                    <input class="btn btn-danger" type="submit"
+                                        value="Refuse">
+                                </td>
+                            </form>
+                        </tr>
+                    </table>
+                </td>
+                <!-- to select blood bags -->
+                <td class="w-25">
+                    <h4 class="h4 text-muted">Select
+                        Blood Bags</h4>
+                    <select style="height: 280px;" class="w-100 form-control"
+                        id="example-getting-started" multiple="multiple">
+                        <option class="py-2 px-3" value="cheese">111
+                        </option>
+                        <option class="py-2 px-3" value="tomatoes">222
+                        </option>
+                        <option class="py-2 px-3" value="mozarella">
+                            333</option>
+                        <option class="py-2 px-3" value="mushrooms">
+                            444</option>
+                        <option class="py-2 px-3" value="pepperoni">
+                            555</option>
+                        <option class="py-2 px-3" value="onions">666
+                        </option>
+                        <option class="py-2 px-3" value="cheese">777
+                        </option>
+                        <option class="py-2 px-3" value="tomatoes">888
+                        </option>
+                        <option class="py-2 px-3" value="mozarella">
+                            999</option>
+                        <option class="py-2 px-3" value="mushrooms">
+                            1010</option>
+                        <option class="py-2 px-3" value="pepperoni">
+                            1111</option>
+                        <option class="py-2 px-3" value="onions">1212
+                        </option>
+                        <option class="py-2 px-3" value="cheese">1313
+                        </option>
+                        <option class="py-2 px-3" value="tomatoes">1414
+                        </option>
+                        <option class="py-2 px-3" value="mozarella">
+                            1515</option>
+                        <option class="py-2 px-3" value="mushrooms">
+                            1616</option>
+                        <option class="py-2 px-3" value="pepperoni">
+                            1717</option>
+                        <option class="py-2 px-3" value="onions">1818
+                        </option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </main>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

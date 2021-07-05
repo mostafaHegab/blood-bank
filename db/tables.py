@@ -77,6 +77,7 @@ def create_orders_table():
             bloodClass TEXT NOT NULL,
             status TEXT NOT NULL DEFAULT 'pending',
             date TIMESTAMP NOT NULL
+            type TEXT NOT NULL
             )"""
 
 # -------------------------------------
@@ -84,14 +85,14 @@ def create_orders_table():
 
 def create_blood_cases_table():
     return """CREATE TABLE BloodCases(
-            id SERIAL PRIMARY KEY,
+            id INT PRIMARY KEY NOT NULL,
             bloodBankId INT NOT NULL REFERENCES BloodBanks(id),
             orderId INT REFERENCES Orders(id),
             type TEXT NOT NULL,
             bloodClass TEXT NOT NULL,
             storingDate DATE NOT NULL,
-            expirationDate DATE NOT NULL
-            isDeleted boolean not null
+            expirationDate DATE NOT NULL,
+            isDeleted BOOLEAN DEFAULT false
             )"""
 
 # -------------------------------------
