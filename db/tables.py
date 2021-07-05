@@ -77,6 +77,7 @@ def create_orders_table():
             bloodClass TEXT NOT NULL,
             status TEXT NOT NULL DEFAULT 'pending',
             date TIMESTAMP NOT NULL
+            type TEXT NOT NULL
             )"""
 
 # -------------------------------------
@@ -90,7 +91,8 @@ def create_blood_cases_table():
             type TEXT NOT NULL,
             bloodClass TEXT NOT NULL,
             storingDate DATE NOT NULL,
-            expirationDate DATE NOT NULL
+            expirationDate DATE NOT NULL,
+            isDeleted BOOLEAN DEFAULT false
             )"""
 
 # -------------------------------------
