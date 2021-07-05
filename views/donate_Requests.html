@@ -36,16 +36,17 @@
             <div class="collapse navbar-collapse listItems"
                 id="navbarSupportedContent">
                 <ul class="navbar-nav m-auto">
-                    <li class="nav-item"><a href="Bank_home.html"
+                    <li class="nav-item"><a href="/bank/home"
                             class="nav-link">Home</a>
                     </li>
                     <li class="nav-item mx-3 pr-5"><a href="#"
                             class="activebtn nav-link">
                             Donate requests</a></li>                    
-                    <li class="nav-item"><a href="blood_requests.html"
+                    <li class="nav-item"><a href="/bank/manage"
                         class="nav-link">
-                        Blood Request</a></li>
-                   
+                        Manage</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Logout</a>
+                    </li>
                 </ul>
             </div>
 
@@ -59,74 +60,31 @@
                 <tr>
                     <th scope="col" class="text-center">Donner Id</th>
                     <th scope="col">Donner Name</th>
-                    <th scope="col">Birthdate</th>
                     <th scope="col">Email</th>
                     <th scope="col">Gender</th>
-                    <th scope="col">Weight</th>
-                    <th scope="col">Has Diseases</th>
-                    <th scope="col" class="col-md-auto">Last Treatment Date</th>
                     <th scope="col">Blood Class</th>
-                    <th scope="col">Last Donation Date</th>
                     <th scope="col">Show</th>
 
                 </tr>
             </thead>
             <tbody>
+                {% for donate in history %}
+                <form action=""method="GET"></form>
                 <tr>
-                    <th scope="row">1</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="btn btn-primary">Show</button></td>
+                    <th scope="row">{{donate["id"]}}</th>
+                    <td>{{donate["name"]}}</td>
+                    <td>{{donate["email"]}}</td>
+                    <td>{{donate["gender"]}}</td>
+                    <td>{{donate["bloodclass"]}}</td>
+                    <td><button class="btn btn-primary "formaction ="/bank/manage">Show</button></td>
 
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="btn btn-primary">Show</button></td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="btn btn-primary">Show</button></td>
-                </tr>
-                <tr>
-                <th scope="row">4</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button class="btn btn-primary">Show</button></td>
-            </tr>
+            </form>
+            
+                {% endfor %}
+             
             </tbody>
-
+        
         </table>
     </div>
 
