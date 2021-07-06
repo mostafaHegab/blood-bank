@@ -82,7 +82,13 @@
                         <td>{{case["bloodclass"]}}</td>
                         <td>{{case["storingdate"]}}</td>
                         <td>{{case["expirationdate"]}}</td>
-                        <td><button class="btn btn-danger">Delete</button></td>
+                        <td>
+                            <a
+                            class="btn btn-danger"
+                            href="/bank/home/{{case['id']}}"
+                            >Delete</a
+                        >
+                           
                     </tr>
                     {% endfor %}
                 </tbody>

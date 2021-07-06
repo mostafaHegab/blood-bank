@@ -9,6 +9,8 @@ import datetime
 from utils.alert import alert
 from utils.security import encrypt_password, check_encrypted_password
 from db.donation_request import get_donation_request, get_donation_details, accept_blood_request
+from db.delete import delete_blood_case
+
 
 
 bank = Blueprint('bank', __name__)
@@ -39,7 +41,12 @@ def login():
 def home():
     bloodcases = execute(get_bank_Storage(session.get("bank")["id"]))
     return render_template('Bank_home.html', bloodcases=bloodcases)
-
+    
+@bank.route('/home/<int:id>',methods=['GET']) 
+def delete(id):
+    bloodcases = execute(get_bank_Storage(session.get("bank")["id"]))
+    execute(delete_blood_case(id))
+    return redirect('/bank/home')
 
 @bank.route('/donation-request', methods=['GET'])
 def show_donate_requests():
