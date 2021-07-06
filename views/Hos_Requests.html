@@ -36,7 +36,7 @@
             <div class="collapse navbar-collapse listItems"
                 id="navbarSupportedContent">
                 <ul class="navbar-nav m-auto">
-                    <li class="nav-item"><a href="hospital_home.html"
+                    <li class="nav-item"><a href="/hospital/home"
                             class="nav-link">Home</a>
                     </li>
                     <li class="nav-item mx-3 pr-5"><a href="#"
@@ -68,51 +68,20 @@
                 </tr>
             </thead>
             <tbody>
+                {% for Hrequest in Hrequests %}
                 <tr>
-                    <th scope="row">1</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <th scope="row">{{Hrequest["id"]}}</th>
+                    <td>{{Hrequest["name"]}}</td>
+                    <td>{{Hrequest["date"]}}</td>
+                    <td>{{Hrequest["email"]}}</td>
+                    <td>{{Hrequest["concat"]}}</td>
+                    <td>{{Hrequest["amount"]}}</td>
+                    <td>{{Hrequest["type"]}}</td>
+                    <td>{{Hrequest["bloodclass"]}}</td>
+                    <td>{{Hrequest["status"]}}</td>
 
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                <th scope="row">4</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                {% endfor %}
             </tbody>
 
         </table>

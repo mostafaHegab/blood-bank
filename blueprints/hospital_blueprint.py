@@ -5,6 +5,7 @@ from db.init import execute
 from db.hospital_data_and_blood_searching import get_hospital_data_by_email, search_for_blood
 from utils.alert import alert
 from utils.security import check_encrypted_password
+from db.blood_requests import blood_requests_for_hospital
 
 hospital = Blueprint('hospital', __name__)
 
@@ -53,3 +54,8 @@ def request_blood():
     execute(add_new_blood_request(request.form['bankId'], session.get('hospital')['id'],
                                   request.form['count'], request.form['bloodClass'], request.form['bloodType'], datetime.datetime.now()))
     return redirect('/hospital/home')
+
+@hospital.route('/blood-request', methods=['GET'])
+def Hospital_Request_Blood():
+    Hrequests = execute(blood_requests_for_hospital(session.get("hospital")["id"]))
+    return render_template('Hos_Requests.html', Hrequests=Hrequests)
