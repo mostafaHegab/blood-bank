@@ -1,3 +1,5 @@
+from db.get_blood_cases import get_blood_cases
+from db.blood_request_details import get_blood_request_details
 from utils.blood import expiration_date
 from db.blood_case_insertion import insert_blood_case
 from db.refused_requests import blood_reauest_refused, update_user
@@ -68,3 +70,11 @@ def accept_request(rid):
                               request.form['bloodClass'], datetime.datetime.now(),
                               datetime.datetime.now() + datetime.timedelta(expiration_date(request.form['bloodType']))))
     return redirect('/bank/donation-request')
+
+
+@bank.route('/blood-request/<int:rid>', methods=['GET'])
+def blood_request_details(rid):
+    bloodRequest = execute(get_blood_request_details(rid))[0]
+    cases = execute(get_blood_cases(session.get(
+        'bank')['id'], bloodRequest['bloodclass'], bloodRequest['type']))
+    return render_template('manage_request.html', data={'request': bloodRequest, 'cases': cases})
