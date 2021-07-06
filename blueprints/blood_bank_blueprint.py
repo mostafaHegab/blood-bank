@@ -13,6 +13,9 @@ from utils.security import encrypt_password, check_encrypted_password
 from db.donation_request import get_donation_request, get_donation_details, accept_donation_request
 from db.unserved_blood_requests import get_unserved_requests
 from db.delete import delete_blood_case
+from db.refused_requests import blood_reauest_refused
+from db.bank_blood_request import order_refused ,order_accepted
+from db.update_blood_cases import update_blood_cases
 
 bank = Blueprint('bank', __name__)
 
@@ -84,6 +87,22 @@ def blood_request_details(rid):
         'bank')['id'], bloodRequest['bloodclass'], bloodRequest['type']))
     return render_template('manage_request.html', data={'request': bloodRequest, 'cases': cases})
 
+@bank.route('/blood-request/<int:rid>/refuse', methods=['POST'])
+def refuse_order_blood_request(rid):
+    x= execute(order_refused(rid))
+    print(x)
+    return redirect('/bank/blood-request')
 
+
+@bank.route('/blood-request/<int:rid>/accept', methods=['POST'])
+def accept_order_request(rid):
+    print(request.form["caseid"])
+    print(request.form.getlist("caseid"))
+    caseids = '(' + ','.join(request.form.getlist('caseid')) + ')' 
+    print(caseids)
+    print(update_blood_cases(rid ,caseids))
+    execute(update_blood_cases(rid ,caseids))
+    execute(order_accepted(rid))
+    return redirect('/bank/blood-request')
 
 
