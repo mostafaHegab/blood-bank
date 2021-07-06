@@ -77,11 +77,11 @@
                 <tbody>
                     {% for case in bloodcases %}
                     <tr>
-                        <th scope="row">{{case["bloodbankid"]}}</th>
+                        <th scope="row">{{case["id"]}}</th>
                         <td>{{case["type"]}}</td>
                         <td>{{case["bloodclass"]}}</td>
                         <td>{{case["storingdate"]}}</td>
-                        <td>{{case["expirationDate"]}}</td>
+                        <td>{{case["expirationdate"]}}</td>
                         <td><button class="btn btn-danger">Delete</button></td>
                     </tr>
                     {% endfor %}

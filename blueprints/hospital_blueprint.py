@@ -1,6 +1,8 @@
+import datetime
+from db.bank_blood_request import add_new_blood_request
 from flask import Blueprint, request, render_template, redirect, session
 from db.init import execute
-from db.hospital_data_and_blood_searching import get_hospital_data_by_email
+from db.hospital_data_and_blood_searching import get_hospital_data_by_email, search_for_blood
 from utils.alert import alert
 from utils.security import check_encrypted_password
 
@@ -28,3 +30,26 @@ def login():
         session['hospital'] = {
             "id": hospital['id'], "email": hospital['email']}
         return redirect('/hospital/home')
+
+
+@hospital.route('/home', methods=['GET', 'POST'])
+def hospital_home():
+    if request.method == 'GET':
+        data = session.get(
+            'search', {'banks': [], 'bloodClass': '', 'bloodType': ''})
+        session['search'] = {'banks': [], 'bloodClass': '', 'bloodType': ''}
+        return render_template('hospital_home.html', data=data)
+
+    if request.method == 'POST':
+        banks = execute(search_for_blood(
+            request.form['bloodType'], request.form['bloodClass']))
+        session['search'] = {
+            'banks': banks, 'bloodClass': request.form['bloodClass'], 'bloodType': request.form['bloodType']}
+        return redirect('/hospital/home')
+
+
+@hospital.route('/blood-request', methods=['POST'])
+def request_blood():
+    execute(add_new_blood_request(request.form['bankId'], session.get('hospital')['id'],
+                                  request.form['count'], request.form['bloodClass'], request.form['bloodType'], datetime.datetime.now()))
+    return redirect('/hospital/home')
