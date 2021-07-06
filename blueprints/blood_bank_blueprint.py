@@ -11,8 +11,9 @@ import datetime
 from utils.alert import alert
 from utils.security import encrypt_password, check_encrypted_password
 from db.donation_request import get_donation_request, get_donation_details, accept_donation_request
-from db.delete import delete_blood_case
 
+from db.unserved_blood_requests import get_unserved_requests
+from db.delete import delete_blood_case
 
 bank = Blueprint('bank', __name__)
 
@@ -50,6 +51,7 @@ def delete(id):
     return redirect('/bank/home')
 
 
+
 @bank.route('/donation-request', methods=['GET'])
 def show_donate_requests():
     history = execute(get_donation_request(session.get("bank")["id"]))
@@ -63,7 +65,7 @@ def show_donate_manage(rid):
 
 
 @bank.route('/donation-request/<int:rid>/refuse', methods=['POST'])
-def refuse_donate_request(rid):
+def refuse_donation_request(rid):
     execute(update_user(
         request.form['userId'], request.form['weight'], request.form['hasDiseases']))
     execute(blood_reauest_refused(rid))
@@ -71,6 +73,7 @@ def refuse_donate_request(rid):
 
 
 @bank.route('/donation-request/<int:rid>/accept', methods=['POST'])
+
 def accept_donate_request(rid):
     execute(accept_donation_request(rid, datetime.datetime.now()))
     execute(insert_blood_case(rid, session.get("bank")["id"], request.form['bloodType'],
@@ -78,6 +81,10 @@ def accept_donate_request(rid):
                               datetime.datetime.now() + datetime.timedelta(expiration_date(request.form['bloodType']))))
     return redirect('/bank/donation-request')
 
+@bank.route('/blood-request', methods=['GET'])
+def show_blood_requests():
+    requests = execute(get_unserved_requests(session.get("bank")["id"]))
+    return render_template('blood_Requests.html', requests=requests)
 
 @bank.route('/blood-request/<int:rid>', methods=['GET'])
 def blood_request_details(rid):
@@ -85,3 +92,7 @@ def blood_request_details(rid):
     cases = execute(get_blood_cases(session.get(
         'bank')['id'], bloodRequest['bloodclass'], bloodRequest['type']))
     return render_template('manage_request.html', data={'request': bloodRequest, 'cases': cases})
+
+
+
+

@@ -38,10 +38,10 @@
             <div class="collapse navbar-collapse listItems"
                 id="navbarSupportedContent">
                 <ul class="navbar-nav m-auto">
-                    <li class="nav-item ml-5 pl-2"><a href="Bank_home.html"
+                    <li class="nav-item ml-5 pl-2"><a href="/bank/home"
                             class="nav-link">Home</a>
                     </li>
-                    <li class="nav-item mx-3"><a href="donate_Requests.html"
+                    <li class="nav-item mx-3"><a href="/bank/donation-request"
                             class="nav-link">
                             Donate Request</a></li>
                     <li class="nav-item"><a href="#" class="activebtn nav-link">
@@ -63,30 +63,21 @@
                 <th scope="col">Order Date</th>
                 <th scope="col">Manage</th>
             </tr>
+            {% for request in requests %}
             <tr>
-                <th scope="col">1</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button class="btn btn-primary">Manage</button></td>
+                <th scope="col">{{request["id"]}}</th>
+                <td>{{request["name"]}}</td>
+                <td>{{request["address"]}}</td>
+                <td>{{request["amount"]}}</td>
+                <td>{{request["date"]}}</td>
+                <td><a
+                    class="btn btn-primary"
+                    href="/bank/blood-request/{{request['id']}}"
+                    >Manage</a
+                > 
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button class="btn btn-primary">Manage</button></td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button class="btn btn-primary">Manage</button></td>
-            </tr>
+            {% endfor %}
+          
 
         </table>
     </main>
