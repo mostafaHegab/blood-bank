@@ -42,9 +42,8 @@ def home():
     bloodcases = execute(get_bank_Storage(session.get("bank")["id"]))
     return render_template('Bank_home.html', bloodcases=bloodcases)
     
-@bank.route('/home/<int:id>',methods=['GET']) 
+@bank.route('/home/<int:id>',methods=['POST']) 
 def delete(id):
-    bloodcases = execute(get_bank_Storage(session.get("bank")["id"]))
     execute(delete_blood_case(id))
     return redirect('/bank/home')
 
