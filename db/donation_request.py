@@ -8,6 +8,6 @@ def get_donation_details(id):
     return query.format(id)
 
 
-def accept_blood_request(id):
-    query = """UPDATE donations SET status = 'accepted' WHERE id = {}"""
-    return query.format(id)
+def accept_donation_request(id, donationDate):
+    query = """UPDATE donations SET status = 'accepted', donationdate = '{}' WHERE id = {}"""
+    return query.format(donationDate, id)
