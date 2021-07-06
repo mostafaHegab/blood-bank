@@ -119,7 +119,7 @@
                             </tr>
                             <tr>
                                 <td class="bg-light text-dark" scope="row">
-                                    <form action="">
+                                    <form action="/bank/blood-request/{{data['request']['orderId']}}/accept" method = 'POST' id="acceptForm">
                                         <input
                                             type="submit"
                                             value="Accept"
@@ -127,7 +127,7 @@
                                         />
                                     </form>
                                 </td>
-                                <form action="">
+                                <form action="/bank/blood-request/{{data['request']['orderId']}}/refuse" method = 'POST' >
                                     <td class="bg-light text-dark text-center">
                                         <input
                                             class="btn btn-danger"
@@ -142,7 +142,7 @@
                     <!-- to select blood bags -->
                     <td class="w-25">
                         <h4 class="h4 text-muted">Select Blood Bags</h4>
-                        <select
+                        <select name="caseid" form ="acceptForm"
                             style="height: 280px"
                             class="w-100 form-control"
                             id="example-getting-started"
