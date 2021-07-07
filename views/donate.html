@@ -1,135 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- CSS only -->
-        <link
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossorigin="anonymous"
-        />
 
-        <link rel="stylesheet" href="../assets/css/user_pages.css" />
-        ‏
-        <title>Document</title>
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous" />
 
-    <body>
-        <nav class="navbar navbar-light navbar-expand-sm bg-light">
-            <div class="container">
-                <!-- logo -->
-                <div class="d-flex align-items-center logoHeader">
-                    <img src="../assets/images/logo.jpg" width="50px" alt="" />
-                    <h2 class="pl-3 pt-3">
-                        <span class="text-danger">B</span>lood
-                        <span class="text-danger">B</span>ank
-                    </h2>
-                </div>
+    <link rel="stylesheet" href="../assets/css/user_pages.css" />
+    ‏
+    <title>Document</title>
+    <style>
+        span {
+            color: red;
+            display: none;
+        }
 
-                <!-- toggle button -->
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!-- navbar links -->
-                <div
-                    class="collapse navbar-collapse listItems"
-                    id="navbarSupportedContent"
-                >
-                    <ul class="navbar-nav m-auto">
-                        <li class="nav-item">
-                            <a href="/user" class="nav-link">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/user/donate" class="activebtn nav-link"
-                                >Apply Donate</a
-                            >
-                        </li>
-                    </ul>
-                </div>
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-sm bg-light">
+        <div class="container">
+            <!-- logo -->
+            <div class="d-flex align-items-center logoHeader">
+                <img src="../assets/images/logo.jpg" width="50px" alt="" />
+                <h2 class="pl-3 pt-3">
+                    <span class="text-danger">B</span>lood
+                    <span class="text-danger">B</span>ank
+                </h2>
             </div>
-        </nav>
 
-        <!-- main content -->
-        <main class="container main">
-            <!-- content header -->
-            <header class="mainChilds">
-                <p>TO donate, please add this information</p>
-            </header>
+            <!-- toggle button -->
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- navbar links -->
+            <div class="collapse navbar-collapse listItems"
+                id="navbarSupportedContent">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item">
+                        <a href="/user" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/user/donate" class="activebtn nav-link">Apply
+                            Donate</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-            <!-- donation form content -->
-            <form
-                action=""
-                method="POST"
-                class="mainChilds col-12 col-sm-10 col-md-8 col-lg-6"
-            >
-                <input
-                    name="lastTreatmentDate"
-                    placeholder="Last Tratment Date"
-                    class="textbox-n"
-                    type="text"
-                    onfocus="(this.type='date')"
-                    onblur="(this.type='text')"
-                    id="date" required
-                />
+    <!-- main content -->
+    <main class="container main">
+        <!-- content header -->
+        <header class="mainChilds">
+            <p>TO donate, please add this information</p>
+        </header>
 
-                <input type="number" name="weight" id="" placeholder="Weight" />
-                <label style="display: block; margin: 0; padding-left:15%;  text-align: left; color: #777; margin-top: 20px;">Has diseases</label>
-                <select name="hasDiseases" id="">
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
-                </select>
+        <!-- donation form content -->
+        <form action="" method="POST"
+            class="mainChilds col-12 col-sm-10 col-md-8 col-lg-6">
+            <input id="" name="lastTreatmentDate"
+                placeholder="Last Tratment Date" class="textbox-n" type="text"
+                onfocus="(this.type='date')" onblur="(this.type='text')"
+                id="date" />
+            <span id="ltdate">must be greater than 14 day</span>
+            <input type="number" name="weight" id="" placeholder="Weight" />
+            <span id="weights">must be greater than 55 kg</span>
+            <input type="hidden" name="hasDiseases" value="false">
 
-                <input
-                    name="donationDate"
-                    placeholder="Last Donation Date"
-                    class="textbox-n"
-                    type="text"
-                    onfocus="(this.type='date')"
-                    onblur="(this.type='text')"
-                    id="date" required
-                />
-                <div>
-                    <div class="form-group">
-                        <input type="text" id="search" name="search" style="width: 70%;height: 50px; border: none; outline: 0; border-bottom: 1px solid rgb(160, 158, 158);" placeholder="select bank ...." onkeyup="filter()">
-                    </div>
-                    <div class="form-group">
-                    <select name="bankId"  id="select" size="10" style=" width:70%;height: 170px;">
+            <input name="donationDate" placeholder="Last Donation Date"
+                class="textbox-n" type="text" onfocus="(this.type='date')"
+                onblur="(this.type='text')" id="date" />
+            <span id="lddate">must be greater than 6 month</span>
+            <div>
+                <div class="form-group">
+                    <input type="text" id="search" name="search"
+                        style="width: 70%;height: 50px; border: none; outline: 0; border-bottom: 1px solid rgb(160, 158, 158);"
+                        placeholder="select bank ...." onkeyup="filter()">
+                </div>
+                <div class="form-group">
+                    <select required name="bankId" id="select" size="10"
+                        style=" width:70%;height: 170px;">
                         {% for bank in banksname %}
                         <option value="{{bank.id}}">{{bank.name}}</option>
                         {% endfor %}
                     </select>
-                    </div>
                 </div>
-               
-                <select required name="bloodType">
-                    <option hidden>Blood type</option>
-                    <option value="complete">complete</option>
-                    <option value="platelet">platelet</option>
-                    <option value="plasma">plasma</option>
-                </select>
-                <div>
-                    <button class="btn btn-danger" formaction="/user/donate">
-                        Donate
-                    </button>
-                </div>
-            </form>
-        </main>
-        <script src="../assets/js/donate.js"></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"
-        ></script>
-    </body>
+            </div>
+
+            <select required name="bloodType">
+                <option hidden>Blood type</option>
+                <option value="complete">complete</option>
+                <option value="platelet">platelet</option>
+                <option value="plasma">plasma</option>
+            </select>
+            <div>
+                <button class="btn btn-danger" formaction="/user/donate">
+                    Donate
+                </button>
+            </div>
+        </form>
+    </main>
+    <script src="../assets/js/donate.js"></script>
+    <script src="../assets/js/donate_validation.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
