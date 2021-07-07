@@ -38,7 +38,7 @@ def login():
 def hospital_home(hid):
     print(hid)
     banks = execute(search_for_blood(
-        request.json['bloodType'], request.json['bloodClass']))
+        request.json['bloodType'], request.json['bloodClass'], hid))
     return jsonify(banks)
 
 

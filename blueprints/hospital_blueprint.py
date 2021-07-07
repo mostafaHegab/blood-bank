@@ -43,7 +43,7 @@ def hospital_home():
 
     if request.method == 'POST':
         banks = execute(search_for_blood(
-            request.form['bloodType'], request.form['bloodClass']))
+            request.form['bloodType'], request.form['bloodClass'],session.get('hospital')['id']))
         session['search'] = {
             'banks': banks, 'bloodClass': request.form['bloodClass'], 'bloodType': request.form['bloodType']}
         return redirect('/hospital/home')
