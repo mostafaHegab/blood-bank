@@ -24,24 +24,26 @@ def search_for_blood(blood_type, blood_class):
 	Governorates.name AS governorateName,
 	Cities.name AS cityName,
  	BloodBanks.street AS street
-	FROM Cities 
-	INNER JOIN 
-	BloodBanks 
+	FROM Hospitals 
+	INNER JOIN BloodBanks
 	ON 
-	BloodBanks.cityId = Cities.id 
+	BloodBanks.cityId = Hospitals.cityId 
 	INNER JOIN 
+	Cities
+	ON
+	Cities.id = BloodBanks.cityID
+	INNER JOIN
 	Governorates 
 	ON Governorates.id = Cities.id 
 	INNER JOIN
 	BloodCases
 	ON
 	BloodCases.bloodBankId = BloodBanks.id
-	WHERE 
-	BloodBanks.cityId = Cities.id
-	AND
-	BloodBanks.id = BloodCases.bloodBankId
-	AND 
-	BloodCases.type = {}
-	AND
-	BloodCases.bloodClass = {})As BankInfo"""
+	WHERE Bloodcases.isDeleted = FALSE
+	AND Bloodcases.orderId IS NULL 
+	AND BloodCases.type = '{}'
+	AND BloodCases.bloodClass = '{}') As BankInfo"""
     return query.format(blood_type, blood_class)
+
+
+
