@@ -158,16 +158,16 @@
                                     <div>
                                         <form class="form-horizontal" role="form" method="POST" action="/hospital/blood-request">
 
-                                            <input type="hidden" value="{{bank['id']}}" name="bankId">
+                                            <input type="hidden" value="{{bank['id']}}" name="bankId" required>
                                             <div class="form-group">
-                                                <input type="hidden" value="{{data['bloodClass']}}" name="bloodClass">
+                                                <input type="hidden" value="{{data['bloodClass']}}" name="bloodClass" required>
                                             <div class="form-group">
-                                                <input type="hidden" value="{{data['bloodType']}}" name="bloodType">
+                                                <input type="hidden" value="{{data['bloodType']}}" name="bloodType" required>
                                             <div class="form-group">
 
                                                 <input class="input_num" type="number" placeholder="number of bags"
-                                                    name="count" min="1" />
-                                                <input type="number" value="" name="bank_id" hidden />
+                                                    name="count" min="1" required/>
+                                                <input type="number" value="" name="bank_id" hidden required/>
                                             </div>
 
                                             <button type="submit" class="mt-1 btn btn-primary"

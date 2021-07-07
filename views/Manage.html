@@ -79,6 +79,7 @@
                                 type="text"
                                 disabled
                                 value="{{donation['donationid']}}"
+                                required
                             />
                         </td>
                     </tr>
@@ -92,12 +93,14 @@
                                 type="text"
                                 disabled
                                 value="{{donation['name']}}"
+                                required
                             />
                             <input
                                 class="form-control"
                                 type="hidden"
                                 name="userId"
                                 value="{{donation['userid']}}"
+                                required
                             />
                         </td>
                     </tr>
@@ -111,6 +114,7 @@
                                 type="text"
                                 disabled
                                 value="{{donation['birthdate']}}"
+                                required
                             />
                         </td>
                     </tr>
@@ -122,6 +126,7 @@
                                 type="text"
                                 disabled
                                 value="{{donation['email']}}"
+                                required
                             />
                         </td>
                     </tr>
@@ -133,6 +138,7 @@
                                 type="text"
                                 disabled
                                 value="{{donation['gender']}}"
+                                required
                             />
                         </td>
                     </tr>
@@ -146,6 +152,7 @@
                                 disabled
                                 value="{{donation['weight']}}"
                                 name="weight"
+                                required
                             />
                         </td>
                     </tr>
@@ -177,6 +184,7 @@
                                 type="Date"
                                 disabled
                                 value="{{donation['lasttreatmentdate']}}"
+                                required
                             />
                         </td>
                     </tr>
@@ -190,12 +198,14 @@
                                 type="text"
                                 disabled
                                 value="{{donation['bloodclass']}}"
+                                required
                             />
                             <input
                                 class="form-control"
                                 type="hidden"
                                 name="bloodClass"
                                 value="{{donation['bloodclass']}}"
+                                required
                             />
                         </td>
                     </tr>
@@ -209,12 +219,14 @@
                                 type="text"
                                 disabled
                                 value="{{donation['bloodtype']}}"
+                                required
                             />
                             <input
                                 class="form-control"
                                 type="hidden"
                                 name="bloodType"
                                 value="{{donation['bloodtype']}}"
+                                required
                             />
                         </td>
                     </tr>
@@ -229,12 +241,13 @@
                                 type="Date"
                                 disabled
                                 value="{{donation['lastdonationdate']}}"
+                                required
                             />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="submit" formaction="/bank/donation-request/{{donation['donationid']}}/accept" value="Accept" id="accept" class="btn btn-primary">
+                            <input type="submit" formaction="/bank/donation-request/{{donation['donationid']}}/accept" value="Accept" id="accept" class="btn btn-primary" required>
                         </td>
                         <td>
                             <button type="button" id="refuse" class="btn btn-danger">
@@ -246,6 +259,7 @@
                                     type="submit"
                                     class="btn btn-danger d-none"
                                     value="Refuse"
+                                    required
                                 />
                         </td>
                     </tr>

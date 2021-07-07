@@ -11,6 +11,7 @@ from blueprints.system_admin_blueprint import sys_admin
 from blueprints.user_blueprint import user
 from blueprints.blood_bank_blueprint import bank
 from blueprints.hospital_blueprint import hospital
+from blueprints.api_blueprint import api
 
 
 app = Flask(__name__, template_folder='views', static_folder='assets')
@@ -30,6 +31,7 @@ app.register_blueprint(sys_admin, url_prefix='/sys-admin')
 app.register_blueprint(user, url_prefix='/user')
 app.register_blueprint(bank, url_prefix='/bank')
 app.register_blueprint(hospital, url_prefix='/hospital')
+app.register_blueprint(api, url_prefix='/api')
 
 if __name__ == "__main__":
     c = conn.cursor()
