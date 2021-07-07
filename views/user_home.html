@@ -60,7 +60,10 @@
         <div class="container">
             <h2 class="section-title my-5 text-muted">Donation Record</h2>
             <span class="line"></span>
-            <table class="table table-striped table-dark" id="T">
+            <div class="row justify-content-center   m-3 mt-5">
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for donations by BankName.." class="form-control "><span style="font-size: 1.8rem; background-color:white; border-radius:5px; padding:5px ;color:black;text-align: center;font-size: 1.1rem;margin-left: 5px; cursor: pointer;"><i style="width: 30px;" class="fa fa-search"></i></span>
+               </div>
+            <table class="table table-striped table-dark" id="myTable">
                 <thead>
                     <tr>
                         <th scope="col">Donation Id</th>
@@ -74,17 +77,19 @@
                 <tbody>
                     {% for donation in donations %}
                     <tr>
-                        <th scope="row">{{donation["donationid"]}}</th>
+                        <td scope="row">{{donation["donationid"]}}</td>
                         <td>{{donation["bankname"]}}</td>
                         <td>{{donation["address"]}}</td>
                         <td>{{donation["donationdate"]}}</td>
                         <td>{{donation["bloodtype"]}}</td>
                         <td>{{donation["status"]}}</td>
                     </tr>
+                  
                     {% endfor %}
                 </tbody>
             </table>
         </div>
+        <script src="../assets/js/hos_blood_requests.js"></script>
 
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

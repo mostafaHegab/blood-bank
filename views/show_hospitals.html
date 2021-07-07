@@ -18,7 +18,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
          <div class="container-fluid">
                  <div class="logo">
-                    <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo image" draggable="false">
+                    <img src="../assets/images/logo.jpg" alt="logo image" draggable="false">
                     <span class="logo-text"><span class="first-letter">b</span>lood <span
                             class="second-letter">b</span>ank</span>
                   </div><!-- ./logo -->
@@ -42,8 +42,11 @@
 
     <!------------------- start section to show table content of hospitals ---------------------->
     <div class="container">
+      <div class="row justify-content-center  d-flex  m-3 mt-5">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for hospitals by Email.." class="form-control "><span style="font-size: 1.8rem; background-color:white; border-radius:5px; padding:5px ;color:black;text-align: center;font-size: 1.1rem;margin-left: 5px; cursor: pointer;"><i style="width: 30px;" class="fa fa-search"></i></span>
+       </div>
         <div class="row">
-            <table class="table table-striped table-dark mt-5">
+            <table class="table table-striped table-dark mt-3" id="myTable">
                 <thead>
                   <tr>
                     <th scope="col">Id</th>
@@ -58,7 +61,7 @@
                 <tbody>
                   {% for hospital in hospitals %} 
                   <tr>
-                    <th scope="row">{{hospital["id"]}}</th>
+                    <td scope="row">{{hospital["id"]}}</td>
                     <td>{{hospital["name"]}}</td>
                     <td>{{hospital["email"]}}</td>
                     <td>{{hospital["concat"]}}</td>
@@ -66,13 +69,15 @@
                     <td>{{hospital["info"]}}</td>
                     <td>{{hospital["createdat"]}}</td>
                   </tr>
+                 
                   {% endfor %}
                     
                 </tbody>
               </table>
         </div>
     </div>
-
+    <script src="../assets/js/show_hospitals.js">
+    </script>
     <!-- -------------------------------------script files--------------------------------------- -->
      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
      <!-- ======================================================================================= -->
