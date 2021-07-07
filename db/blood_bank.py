@@ -5,6 +5,6 @@ def get_bloodbanks_by_email(email):
 # ******************************************************
 
 
-def get_dobations_history_by_bank(id):
-    query = """SELECT Users.id, name, birthDate, email, gender, weight, hasDiseases, lastTreatmentDate, bloodClass, lastDonationDate FROM Users INNER JOIN Donations ON Donations.userId = Users.id WHERE Donations.id = {} AND Donations.status != 'Pending'"""
+def get_donations_history_by_bank(id):
+    query = """SELECT Users.id, name, birthDate, email, gender, weight, hasDiseases, lastTreatmentDate, bloodClass, lastDonationDate FROM Users INNER JOIN Donations ON Donations.userId = Users.id WHERE Donations.bloodBankId = {} AND Donations.status != 'Pending' ORDER BY Donations.createdAt ASC"""
     return query.format(id)
