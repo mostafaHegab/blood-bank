@@ -91,8 +91,8 @@ def create_blood_cases_table():
             type TEXT NOT NULL,
             bloodClass TEXT NOT NULL,
             storingDate TIMESTAMP NOT NULL,
-            expirationDate TIMESTAMP NOT NULL
-            isDeleted boolean not null
+            expirationDate TIMESTAMP NOT NULL,
+            isDeleted boolean not null default false
             )"""
 
 # -------------------------------------
@@ -106,8 +106,8 @@ def create_donations_table():
             status TEXT NOT NULL DEFAULT 'pending',
             donationDate TIMESTAMP,
             bags INT,
-            createdAt TIMESTAMP NOT NULL
-            bloodType TEXT NOT NULL DEFAULT 'complete',
+            createdAt TIMESTAMP NOT NULL,
+            bloodType TEXT NOT NULL DEFAULT 'complete'
             )"""
 
 # -------------------------------------

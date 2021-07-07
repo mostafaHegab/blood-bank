@@ -9,3 +9,6 @@ DB_CONFIG = {
 }
 
 DB_CONFIG["databaseURL"] = f"postgresql://{DB_CONFIG['user']}:{DB_CONFIG['password']}@{DB_CONFIG['host']}:{DB_CONFIG['port']}/{DB_CONFIG['database']}"
+
+JWT_SECRET_KEY = "secret jwt"
+ACCESS_TOKEN_EXPIRATION_OFFSET = 24*60 # minutes

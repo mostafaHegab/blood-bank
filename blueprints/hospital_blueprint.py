@@ -43,7 +43,7 @@ def hospital_home():
 
     if request.method == 'POST':
         banks = execute(search_for_blood(
-            request.form['bloodType'], request.form['bloodClass']))
+            request.form['bloodType'], request.form['bloodClass'], session.get('hospital')['id']))
         session['search'] = {
             'banks': banks, 'bloodClass': request.form['bloodClass'], 'bloodType': request.form['bloodType']}
         return redirect('/hospital/home')
@@ -55,7 +55,9 @@ def request_blood():
                                   request.form['count'], request.form['bloodClass'], request.form['bloodType'], datetime.datetime.now()))
     return redirect('/hospital/home')
 
+
 @hospital.route('/blood-request', methods=['GET'])
 def Hospital_Request_Blood():
-    Hrequests = execute(blood_requests_for_hospital(session.get("hospital")["id"]))
+    Hrequests = execute(blood_requests_for_hospital(
+        session.get("hospital")["id"]))
     return render_template('Hos_Requests.html', Hrequests=Hrequests)
