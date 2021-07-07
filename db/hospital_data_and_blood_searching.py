@@ -6,7 +6,7 @@ def get_hospital_data_by_email(email):
 # -----------------------------------------------------------------------
 
 
-def search_for_blood(blood_type, blood_class):
+def search_for_blood(blood_type, blood_class, hospital_id):
     query = """SELECT DISTINCT
 	BankInfo.id,  
 	BankInfo.name,
@@ -42,5 +42,6 @@ def search_for_blood(blood_type, blood_class):
 	WHERE Bloodcases.isDeleted = FALSE
 	AND Bloodcases.orderId IS NULL 
 	AND BloodCases.type = '{}'
-	AND BloodCases.bloodClass = '{}') As BankInfo"""
-    return query.format(blood_type, blood_class)
+	AND BloodCases.bloodClass = '{}'
+	AND Hospitals.id = {}) As BankInfo"""
+    return query.format(blood_type, blood_class, hospital_id)
