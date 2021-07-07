@@ -67,8 +67,11 @@
             </div>
         </nav>
 
-        <main class="container py-5 ">
-            <table class="table table-striped table-dark mt-5">
+        <main class="container py-5">
+            <div class="row justify-content-center  d-flex  m-3">
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for blood_requests by id.." class="form-control "><span style="font-size: 1.8rem; background-color:white; border-radius:5px; padding:5px ;color:black;text-align: center;font-size: 1.1rem;margin-left: 5px; cursor: pointer;"><i style="width: 30px;" class="fa fa-search"></i></span>
+            </div>
+            <table class="table text-light bg-dark table-striped" id="myTable">
                 <tr>
                     <th scope="col">Order Id</th>
                     <th scope="col">Hospital Name</th>
@@ -79,7 +82,7 @@
                 </tr>
                 {% for request in requests %}
                 <tr>
-                    <th scope="col">{{request["id"]}}</th>
+                    <td scope="col">{{request["id"]}}</td>
                     <td>{{request["name"]}}</td>
                     <td>{{request["address"]}}</td>
                     <td>{{request["amount"]}}</td>
@@ -91,16 +94,20 @@
                             >Manage</a
                         >
                     </td>
+            
                 </tr>
-
+ 
                 {% endfor %}
             </table>
         </main>
+        <script src="../assets/js/donate_request.js">
+        </script>
 
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"
-        ></script>
+        >
+    </script>
     </body>
 </html>
