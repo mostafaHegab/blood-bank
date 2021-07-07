@@ -50,16 +50,19 @@
                     id="navbarSupportedContent"
                 >
                     <ul class="navbar-nav m-auto">
-                        <li class="nav-item ml-5 pl-2">
-                            <a href="Home.html" class="nav-link">Home</a>
+                        <li class="nav-item mx-3 pr-5">
+                            <a href="/bank/home" class="nav-link">Home</a>
                         </li>
-                        <li class="nav-item mx-3">
-                            <a href="#" class="activebtn nav-link">
+                        <li class="nav-item">
+                            <a href="/bank/donation-request" class="nav-link">
                                 Donate Request</a
                             >
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="activebtn nav-link">
+                            <a
+                                href="/bank/blood-request"
+                                class="activebtn nav-link"
+                            >
                                 Blood Request</a
                             >
                         </li>
@@ -119,7 +122,11 @@
                             </tr>
                             <tr>
                                 <td class="bg-light text-dark" scope="row">
-                                    <form action="/bank/blood-request/{{data['request']['orderId']}}/accept" method = 'POST' id="acceptForm">
+                                    <form
+                                        action="/bank/blood-request/{{data['request']['orderId']}}/accept"
+                                        method="POST"
+                                        id="acceptForm"
+                                    >
                                         <input
                                             type="submit"
                                             value="Accept"
@@ -127,7 +134,10 @@
                                         />
                                     </form>
                                 </td>
-                                <form action="/bank/blood-request/{{data['request']['orderId']}}/refuse" method = 'POST' >
+                                <form
+                                    action="/bank/blood-request/{{data['request']['orderId']}}/refuse"
+                                    method="POST"
+                                >
                                     <td class="bg-light text-dark text-center">
                                         <input
                                             class="btn btn-danger"
@@ -142,7 +152,9 @@
                     <!-- to select blood bags -->
                     <td class="w-25">
                         <h4 class="h4 text-muted">Select Blood Bags</h4>
-                        <select name="caseid" form ="acceptForm"
+                        <select
+                            name="caseid"
+                            form="acceptForm"
                             style="height: 280px"
                             class="w-100 form-control"
                             id="example-getting-started"

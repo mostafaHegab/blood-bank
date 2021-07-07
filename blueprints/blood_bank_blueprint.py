@@ -15,7 +15,7 @@ from db.donation_request import get_donation_request, get_donation_details, acce
 from db.unserved_blood_requests import get_unserved_requests
 from db.delete import delete_blood_case
 from db.refused_requests import blood_reauest_refused
-from db.bank_blood_request import order_refused ,order_accepted
+from db.bank_blood_request import order_refused, order_accepted
 from db.update_blood_cases import update_blood_cases
 
 bank = Blueprint('bank', __name__)
@@ -54,7 +54,6 @@ def delete(id):
     return redirect('/bank/home')
 
 
-
 @bank.route('/donation-request', methods=['GET'])
 def show_donate_requests():
     history = execute(get_donation_request(session.get("bank")["id"]))
@@ -76,7 +75,6 @@ def refuse_donation_request(rid):
 
 
 @bank.route('/donation-request/<int:rid>/accept', methods=['POST'])
-
 def accept_donate_request(rid):
     execute(accept_donation_request(rid, datetime.datetime.now()))
     execute(insert_blood_case(rid, session.get("bank")["id"], request.form['bloodType'],
@@ -84,10 +82,12 @@ def accept_donate_request(rid):
                               datetime.datetime.now() + datetime.timedelta(expiration_date(request.form['bloodType']))))
     return redirect('/bank/donation-request')
 
+
 @bank.route('/blood-request', methods=['GET'])
 def show_blood_requests():
     requests = execute(get_unserved_requests(session.get("bank")["id"]))
-    return render_template('blood_Requests.html', requests=requests)
+    return render_template('blood_requests.html', requests=requests)
+
 
 @bank.route('/blood-request/<int:rid>', methods=['GET'])
 def blood_request_details(rid):
@@ -96,9 +96,10 @@ def blood_request_details(rid):
         'bank')['id'], bloodRequest['bloodclass'], bloodRequest['type']))
     return render_template('manage_request.html', data={'request': bloodRequest, 'cases': cases})
 
+
 @bank.route('/blood-request/<int:rid>/refuse', methods=['POST'])
 def refuse_order_blood_request(rid):
-    x= execute(order_refused(rid))
+    x = execute(order_refused(rid))
     print(x)
     return redirect('/bank/blood-request')
 
@@ -107,11 +108,9 @@ def refuse_order_blood_request(rid):
 def accept_order_request(rid):
     print(request.form["caseid"])
     print(request.form.getlist("caseid"))
-    caseids = '(' + ','.join(request.form.getlist('caseid')) + ')' 
+    caseids = '(' + ','.join(request.form.getlist('caseid')) + ')'
     print(caseids)
-    print(update_blood_cases(rid ,caseids))
-    execute(update_blood_cases(rid ,caseids))
+    print(update_blood_cases(rid, caseids))
+    execute(update_blood_cases(rid, caseids))
     execute(order_accepted(rid))
     return redirect('/bank/blood-request')
-
-

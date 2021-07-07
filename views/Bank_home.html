@@ -45,7 +45,9 @@
                 >
                     <ul class="navbar-nav m-auto">
                         <li class="nav-item mx-3 pr-5">
-                            <a href="#" class="activebtn nav-link">Home</a>
+                            <a href="/bank/home" class="activebtn nav-link"
+                                >Home</a
+                            >
                         </li>
                         <li class="nav-item">
                             <a href="/bank/donation-request" class="nav-link">
@@ -82,14 +84,12 @@
                         <td>{{case["bloodclass"]}}</td>
                         <td>{{case["storingdate"]}}</td>
                         <td>{{case["expirationdate"]}}</td>
-                        
-                        <form action="/bank/home/{{case['id']}}" method="post">
-                            <td> <button class="btn btn-danger" >
-                                    Delete
-                                </button></td>   
 
+                        <form action="/bank/home/{{case['id']}}" method="post">
+                            <td>
+                                <button class="btn btn-danger">Delete</button>
+                            </td>
                         </form>
-                      
                     </tr>
                     {% endfor %}
                 </tbody>
