@@ -5,13 +5,13 @@ def create_users_table():
             email TEXT NOT NULL,
             password TEXT NOT NULL,
             gender TEXT NOT NULL,
-            birthDate DATE NOT NULL,
+            birthDate TIMESTAMP NOT NULL,
             weight REAL,
             hasDiseases BOOLEAN,
-            lastTreatmentDate DATE,
+            lastTreatmentDate TIMESTAMP,
             bloodClass TEXT,
-            lastDonationDate DATE DEFAULT '1970-01-01 00:00:00',
-            nextDonationDate DATE DEFAULT '1970-01-01 00:00:00'
+            lastDonationDate TIMESTAMP DEFAULT '1970-01-01 00:00:00',
+            nextDonationDate TIMESTAMP DEFAULT '1970-01-01 00:00:00'
             )"""
 
 # -------------------------------------
@@ -46,7 +46,7 @@ def create_blood_banks_table():
             cityId INT NOT NULL REFERENCES Cities(id),
             phone TEXT,
             info TEXT,
-            createdAt DATE NOT NULL
+            createdAt TIMESTAMP NOT NULL
             )"""
 
 # -------------------------------------
@@ -62,7 +62,7 @@ def create_hospitals_table():
             street TEXT NOT NULL,
             cityId INT NOT NULL REFERENCES Cities(id),
             info TEXT,
-            createdAt DATE NOT NULL
+            createdAt TIMESTAMP NOT NULL
             )"""
 
 # -------------------------------------
@@ -89,8 +89,8 @@ def create_blood_cases_table():
             orderId INT REFERENCES Orders(id),
             type TEXT NOT NULL,
             bloodClass TEXT NOT NULL,
-            storingDate DATE NOT NULL,
-            expirationDate DATE NOT NULL
+            storingDate TIMESTAMP NOT NULL,
+            expirationDate TIMESTAMP NOT NULL
             isDeleted boolean not null
             )"""
 
@@ -103,9 +103,9 @@ def create_donations_table():
             userId INT NOT NULL REFERENCES Users(id),
             bloodBankId INT NOT NULL REFERENCES BloodBanks(id),
             status TEXT NOT NULL DEFAULT 'pending',
-            donationDate DATE,
+            donationDate TIMESTAMP,
             bags INT,
-            createdAt DATE NOT NULL
+            createdAt TIMESTAMP NOT NULL
             )"""
 
 # -------------------------------------
