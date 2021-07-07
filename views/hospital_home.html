@@ -32,8 +32,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown" style=" width: 40%;">
                     <ul class="nav">
-                        <li><a class="active" href="#">Home</a></li>
-                        <li><a href="#">Log Out</a></li>
+                        <li class="nav-item"><a href="/hospital/home"
+                            class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item mx-3 pr-5"><a href="/hospital/blood-request"
+                            class="activebtn nav-link">
+                            Blood requests</a></li> 
                     </ul>
                 </div>
 
@@ -47,10 +51,10 @@
     <div class="container">
         <div class="row mt-5" style="border: 1px solid #ccc; border-radius: 15px;box-shadow: 3px 3px #d3d2d2;   padding: 15px 20px;">
             <h3 class="m-auto w-50 text-center mb-3 text-muted">Seearch For blood</h3>
-            <form>
+            <form action="/hospital/home" method="POST">
                 <div class="d-flex">
                   <div class="col-4 form-group text-center">
-                    <select required>
+                    <select required name="bloodClass">
                         <option hidden>Blood class</option>
                         <option value="A+">A+</option>
                         <option value="A-">A-</option>
@@ -63,7 +67,7 @@
                     </select>
                   </div>
                   <div class="col-4 form-group text-center">
-                    <select required>
+                    <select required name="bloodType">
                         <option hidden>Blood type</option>
                         <option value="complete">complete</option>
                         <option value="platelet">platelet</option>
@@ -90,23 +94,21 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for bank in data.banks %}
                     <tr>
-                        <th scope="row">1</th>
-                        <td></td>
-                        <td></td>
-                        <td><button class="btn btn-primary" data-toggle="modal"
-                                data-target="#exampleModal">Request</button>
-                        </td>
-
-                    </tr>
-                </tbody>
-            </table>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <th scope="row">{{bank['id']}}</th>
+                        <td>{{bank['name']}}</td>
+                        <td>{{bank['address']}}</td>
+                        <td>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-{{bank['id']}}">
+                                Request
+                            </button>
+                            <div class="modal fade" id="exampleModal-{{bank['id']}}" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel-{{bank['id']}}" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title text-muted" id="exampleModalLabel">select 
+                                    <h5 class="modal-title text-muted" id="exampleModalLabel-{{bank['id']}}">select 
                                         No.of.bags</h5>
                                     <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -114,9 +116,13 @@
                                 </div>
                                 <div class="modal-body">
                                     <div>
-                                        <form class="form-horizontal" role="form" method="" action=" ">
+                                        <form class="form-horizontal" role="form" method="POST" action="/hospital/blood-request">
 
-                                        
+                                            <input type="hidden" value="{{bank['id']}}" name="bankId">
+                                            <div class="form-group">
+                                                <input type="hidden" value="{{data['bloodClass']}}" name="bloodClass">
+                                            <div class="form-group">
+                                                <input type="hidden" value="{{data['bloodType']}}" name="bloodType">
                                             <div class="form-group">
 
                                                 <input class="input_num" type="number" placeholder="number of bags"
@@ -135,12 +141,14 @@
                                 </div>
                             </div>
                         </div>
+        </div>
+                        </td>
 
-
-
-            
-        </div><!-- ./row -->
-    </div><!-- ./container -->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
 
 
     <!-- -------------------------------------script files--------------------------------------- -->

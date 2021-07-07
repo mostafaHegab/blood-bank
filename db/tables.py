@@ -76,7 +76,8 @@ def create_orders_table():
             amount INT NOT NULL,
             bloodClass TEXT NOT NULL,
             status TEXT NOT NULL DEFAULT 'pending',
-            date TIMESTAMP NOT NULL
+            date TIMESTAMP NOT NULL,
+            type TEXT NOT NULL
             )"""
 
 # -------------------------------------
@@ -84,7 +85,7 @@ def create_orders_table():
 
 def create_blood_cases_table():
     return """CREATE TABLE BloodCases(
-            id SERIAL PRIMARY KEY,
+            id INT PRIMARY KEY NOT NULL,
             bloodBankId INT NOT NULL REFERENCES BloodBanks(id),
             orderId INT REFERENCES Orders(id),
             type TEXT NOT NULL,
@@ -106,6 +107,7 @@ def create_donations_table():
             donationDate TIMESTAMP,
             bags INT,
             createdAt TIMESTAMP NOT NULL
+            bloodType TEXT NOT NULL DEFAULT 'complete',
             )"""
 
 # -------------------------------------

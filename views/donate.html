@@ -106,6 +106,12 @@
                     <option value="{{bank.id}}">{{bank.name}}</option>
                     {% endfor %}
                 </select>
+                <select required name="bloodType">
+                    <option hidden>Blood type</option>
+                    <option value="complete">complete</option>
+                    <option value="platelet">platelet</option>
+                    <option value="plasma">plasma</option>
+                </select>
                 <div>
                     <button class="btn btn-danger" formaction="/user/donate">
                         Donate

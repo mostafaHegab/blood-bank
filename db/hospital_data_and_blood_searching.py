@@ -1,11 +1,5 @@
 def get_hospital_data_by_email(email):
-    query = """SELECT
-	id,  
-	email,	
-	password
- 	FROM 
-	Hospitals
-	WHERE email = {}"""
+    query = """SELECT id, email, password FROM  Hospitals WHERE email = '{}'"""
     return query.format(email)
 
 
@@ -47,7 +41,7 @@ def search_for_blood(blood_type, blood_class):
 	AND
 	BloodBanks.id = BloodCases.bloodBankId
 	AND 
-	BloodCases.type = {}
+	BloodCases.type = '{}'
 	AND
-	BloodCases.bloodClass = {})As BankInfo"""
+	BloodCases.bloodClass = '{}')As BankInfo"""
     return query.format(blood_type, blood_class)
