@@ -1,5 +1,7 @@
 /** @format */
 
+console.log('hello')
+
 let select = document.getElementsByTagName('select')[0];
 let amount = document.getElementById('amount');
 
