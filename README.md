@@ -25,3 +25,5 @@ pipenv install
 ```
 python app.py
 ```
+### there is also an API for other systems to react as hospital
+[API documentation](https://documenter.getpostman.com/view/10073707/Tzm5GwZ1)
