@@ -6,14 +6,14 @@
 [As hospital](http://blood-bank-ms.herokuapp.com/hospital/login)\
 [As blood bank](http://blood-bank-ms.herokuapp.com/bank/login)
 ### Run Project locally
-1- download or clone the repo
-2- download python (3.8 or higher)
-3- install pipenv
-`pip install pipenv`
-4- navigate to project folder
+1- download or clone the repo\
+2- download python (3.8 or higher)\
+3- install pipenv\
+  pip install pipenv
+4- navigate to project folder\
 5- activate virtual environment
-`pipenv shell`
+  pipenv shell
 6- install requirements
-`pipenv install`
+  pipenv install
 7- run the app
-`python app.py`
+  python app.py
